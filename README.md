@@ -4,19 +4,35 @@ Custom Next.js 14 (App Router) + Tailwind rebuild of dirtywinpro.com. Deployed o
 Vercel, versioned on GitHub. See `winpro-redesign-prd.md` for the full spec — it is
 the source of truth. Section references below (e.g. §4) point into that PRD.
 
-## Status: Phase 1 (Foundation) complete
+## Status: Phase 2 (Lead engine) complete
 
-Built: design system, shared Header/Footer, full Home page with the placeholder
-system, the working before/after slider, and the services/plans data sources.
-Interior routes exist as lightweight stubs so navigation never dead-ends.
+Built so far: design system, shared Header/Footer, full Home page with the
+placeholder system, the working before/after slider, the services/plans data
+sources, **the multi-step quote form, `/api/quote` → Resend delivery, `/thank-you`,
+and the `/plans` page**. Service pages, About, and Gallery remain lightweight stubs
+(Phase 3) so navigation never dead-ends. The Home hero plays a client-supplied
+background video (reduced-motion aware).
 
 | Phase | What it adds |
 |---|---|
 | **1 ✅** | Scaffold, design tokens, Header/Footer, Home, before/after slider, data |
-| 2 | Multi-step quote form, `/api/quote` → Resend, `/thank-you`, `/plans` |
+| **2 ✅** | Multi-step quote form, `/api/quote` → Resend, `/thank-you`, `/plans` |
 | 3 | 5 service pages, About, Gallery, Instagram (Behold) |
 | 4 | Real photos, copy sign-off, SEO/schema, 301 redirects, Lighthouse |
 | 5 | DNS cutover |
+
+### Quote form & email (Phase 2)
+
+- `components/quote/QuoteForm.tsx` — 5-step form (§6): progress bar, back button,
+  Enter-advances, autofocus per step, inline validation, honeypot, 48px+ targets,
+  state preserved on back. Embedded on Home and at `/quote`. Plan preselects via
+  `/quote?plan=quarterly` (the `/plans` cards link this way).
+- `app/api/quote/route.ts` — validates (server-side mirror of the client), drops
+  honeypot hits silently, rate-limits by IP, sends the owner email via Resend, and
+  fires an optional auto-reply to the lead. **Without `RESEND_API_KEY` it logs the
+  payload and returns success**, so the whole flow is testable locally with no keys.
+- Rate limiting is in-memory (`lib/rateLimit.ts`) — a best-effort speed bump that
+  resets per serverless instance. Swap for Upstash Redis if real abuse appears.
 
 ## Getting started
 
@@ -63,8 +79,9 @@ lives in `.env.example`.
 
 | Var | Phase | Purpose |
 |---|---|---|
-| `RESEND_API_KEY` | 2 | Resend API key for quote-email delivery (§6) |
+| `RESEND_API_KEY` | 2 | Resend API key for quote-email delivery (§6). Unset = dev mode (logs, no send). |
 | `QUOTE_TO_EMAIL` | 2 | Owner inbox for quote requests — confirm `winpro363@gmail.com` (§6, §12) |
+| `QUOTE_FROM_EMAIL` | 2 | Optional. Sender address. Defaults to Resend's `onboarding@resend.dev` until the `dirtywinpro.com` domain is verified (§6). |
 | `BEHOLD_FEED_URL` | 3 | Behold.so JSON feed URL for the @winprollc Instagram section (§7) |
 
 ## One-time setup (before later phases)

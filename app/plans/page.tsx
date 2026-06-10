@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { PlanCard } from "@/components/PlanCard";
+import { FinalCtaBand } from "@/components/home/FinalCtaBand";
 import { plans } from "@/data/plans";
 
 export const metadata: Metadata = {
@@ -26,8 +27,13 @@ export default function PlansPage() {
               <PlanCard key={plan.slug} plan={plan} />
             ))}
           </div>
+          <p className="mt-8 text-center text-sm text-ink/55">
+            Not sure which fits? Start a quote and we&apos;ll recommend the right plan
+            for your home.
+          </p>
         </Container>
       </section>
+      <FinalCtaBand />
     </>
   );
 }

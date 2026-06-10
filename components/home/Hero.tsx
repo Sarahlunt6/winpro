@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { HeroBackground } from "@/components/home/HeroBackground";
 import { site } from "@/data/site";
 
 /**
@@ -10,17 +10,10 @@ import { site } from "@/data/site";
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Full-bleed background placeholder. Swaps to a priority next/image hero later (§8). */}
-      <div className="absolute inset-0 -z-10">
-        <Placeholder
-          label="Hero — St. George home, photo TK"
-          ratio="hero"
-          tone="ink"
-          className="h-full w-full !aspect-auto"
-        />
-        {/* glass overlay for text legibility (§4) */}
-        <div className="absolute inset-0 bg-glass" />
-      </div>
+      {/* Full-bleed background video (client-supplied footage), reduced-motion aware. */}
+      <HeroBackground />
+      {/* glass overlay for text legibility over the video (§4) */}
+      <div className="absolute inset-0 -z-10 bg-glass" />
 
       <Container className="flex min-h-[78vh] flex-col justify-center py-20 sm:min-h-[72vh] lg:py-28">
         <div className="max-w-2xl">
