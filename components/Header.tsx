@@ -51,7 +51,7 @@ export function Header() {
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-white/70 backdrop-blur-md">
       <Container>
         <div className="flex h-16 items-center justify-between gap-4 lg:h-20">
           <Link

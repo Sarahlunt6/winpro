@@ -60,6 +60,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             ratio="hero"
             tone="ink"
             decorative
+            src={service.image}
+            priority
+            sizes="100vw"
             className="h-full w-full !aspect-auto"
           />
           <div className="absolute inset-0 bg-glass" />
@@ -116,6 +119,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               alt={`${service.name} by WinPro at a St. George home — project photo coming soon`}
               ratio="wide"
               className="rounded-2xl"
+              src={service.image}
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div>
               <SectionHeading eyebrow="What's included" title="Done right, every visit" />

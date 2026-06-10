@@ -13,6 +13,8 @@ export type GalleryItem = {
   id: string;
   label: string;
   category: GalleryCategory;
+  // Final photo path (file in /public). Set it and the tile swaps to next/image.
+  image?: string;
 };
 
 export const galleryItems: GalleryItem[] = [

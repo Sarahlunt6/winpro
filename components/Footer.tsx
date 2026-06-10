@@ -18,7 +18,7 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* Brand + social */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <LogoIcon className="h-14 w-14 rounded-xl" />
+            <LogoIcon className="h-14 w-14" />
             <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-white/60">
               {site.tagline}. Licensed, insured, and local.
             </p>

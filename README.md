@@ -136,9 +136,32 @@ so dropping in real images is **zero layout shift**:
 - Hero / before-after: **16:9** (`aspect-hero`)
 - Gallery / Instagram: **1:1** (`aspect-square`)
 
-To swap: add files under `public/`, replace the `<Placeholder … />` with `next/image`
-at the same aspect ratio, and mark the hero image `priority` (§8). The before/after
-slider's two `SlideFill` placeholders become two `<Image>`s — markup is otherwise ready.
+**`Placeholder` is the swap point** — pass it a `src` and it renders an optimized
+`next/image` (object-cover) filling the identical box; no markup changes needed.
+The easiest path is data-driven:
+
+- **Service photos:** add a file to `public/` and set `image` on the service in
+  `data/services.ts` (e.g. `image: "/photos/exterior.jpg"`). Used by the card, the
+  service-page hero (already `priority`), and the 2-col section.
+- **Gallery photos:** set `image` on items in `data/gallery.ts`.
+- Local files in `public/` need no config. For a remote CDN, add the host to
+  `images.remotePatterns` in `next.config.mjs`.
+
+### Hero video
+
+`public/video/hero.mp4` is a 720p, ~4 MB H.264 encode (down from the 13 MB original)
+with a poster frame at `public/video/hero-poster.jpg`. The poster paints instantly and
+is the still shown to `prefers-reduced-motion` users (who never trigger autoplay, so
+they don't download the video). To replace the footage, drop in a new 720p MP4 at the
+same path and regenerate the poster:
+`ffmpeg -i new.mp4 -vf scale=1280:-2 -crf 28 -an -movflags +faststart hero.mp4`
+and `ffmpeg -ss 0 -i hero.mp4 -frames:v 1 -vf scale=1280:-2 hero-poster.jpg`.
+
+## Analytics (§8)
+
+Vercel Analytics is always on (`@vercel/analytics`, no env var). An optional Google
+tag loads **only** when you set one of `NEXT_PUBLIC_GA_ID` (GA4) or `NEXT_PUBLIC_GTM_ID`
+(GTM wins if both set) — in `.env` and Vercel. See `components/Analytics.tsx`.
 
 ## What the client still needs to provide
 

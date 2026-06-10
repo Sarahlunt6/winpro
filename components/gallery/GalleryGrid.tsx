@@ -78,6 +78,8 @@ export function GalleryGrid() {
               label={item.label}
               alt={`${item.label} — ${item.category} window cleaning project by WinPro, photo coming soon`}
               ratio="square"
+              src={item.image}
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
             <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-ink/70">
               {item.category}
@@ -109,6 +111,8 @@ export function GalleryGrid() {
               alt={`${active.label} — ${active.category} window cleaning project by WinPro, photo coming soon`}
               ratio="wide"
               className="rounded-2xl"
+              src={active.image}
+              sizes="(max-width: 768px) 100vw, 768px"
             />
             <div className="mt-3 flex items-center justify-between text-white">
               <p className="text-sm font-medium">

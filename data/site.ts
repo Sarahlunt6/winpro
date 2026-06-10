@@ -14,8 +14,8 @@ export const site = {
     url: "https://instagram.com/winprollc",
   },
   googleRating: {
-    value: "4.9",
-    label: "4.9 stars on Google",
+    value: "5.0",
+    label: "5.0 stars on Google",
     // TODO: link to the real Google Business Profile reviews URL before launch.
     url: "#",
   },

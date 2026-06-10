@@ -13,7 +13,13 @@ export function ServiceCard({ service }: { service: Service }) {
       className="group relative block overflow-hidden rounded-2xl ring-1 ring-ink/10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       {/* Decorative: the visible service name (h3 below) is the accessible label. */}
-      <Placeholder label={service.placeholderLabel} ratio="card" decorative />
+      <Placeholder
+        label={service.placeholderLabel}
+        ratio="card"
+        decorative
+        src={service.image}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      />
 
       {/* legibility overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />

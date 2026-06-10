@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 type Ratio = "hero" | "card" | "square" | "wide";
@@ -24,12 +25,23 @@ type PlaceholderProps = {
   alt?: string;
   /** Mark purely decorative (e.g. when an adjacent heading already names it). */
   decorative?: boolean;
+  /**
+   * THE SWAP POINT (§4, §8). Pass a real image path (file in /public, or a remote
+   * URL configured in next.config images.remotePatterns) and this renders an
+   * optimized next/image filling the SAME aspect-ratio box — zero layout shift vs.
+   * the placeholder. Leave undefined to show the interim cloud block.
+   */
+  src?: string;
+  /** Use on the LCP/hero image only (§8 performance). */
+  priority?: boolean;
+  /** Responsive sizes hint for next/image; improves the srcset it picks. */
+  sizes?: string;
 };
 
 /**
- * The interim image system (§4): a solid cloud-colored block with a camera glyph
- * and a label. NOT stock photos, NOT via.placeholder.com. Every real <img> later
- * swaps into a slot with the exact same aspect ratio, so nothing shifts.
+ * Interim image system + final-photo swap point (§4). With no `src` it renders a
+ * solid cloud block with a camera glyph and label (NOT stock photos / placeholder
+ * URLs). With `src` it renders the real photo via next/image in the identical box.
  */
 export function Placeholder({
   label,
@@ -38,10 +50,30 @@ export function Placeholder({
   tone = "cloud",
   alt,
   decorative = false,
+  src,
+  priority = false,
+  sizes,
 }: PlaceholderProps) {
+  // Real photo path — zero-CLS swap into the same aspect box.
+  if (src) {
+    return (
+      <div className={cn("relative overflow-hidden", ratioClass[ratio], className)}>
+        <Image
+          src={src}
+          alt={decorative ? "" : alt || label}
+          fill
+          priority={priority}
+          sizes={sizes ?? "100vw"}
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
+  // Interim placeholder.
   return (
     <div
-      role="img"
+      role={decorative ? undefined : "img"}
       aria-label={decorative ? undefined : alt || label}
       aria-hidden={decorative || undefined}
       className={cn(

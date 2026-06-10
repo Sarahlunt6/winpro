@@ -17,15 +17,7 @@ export function Hero() {
 
       <Container className="flex min-h-[78vh] flex-col justify-center py-20 sm:min-h-[72vh] lg:py-28">
         <div className="max-w-2xl">
-          <a
-            href={site.googleRating.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-1.5 text-sm font-medium text-ink shadow-sm transition-colors hover:bg-white"
-          >
-            <Stars />
-            <span>{site.googleRating.label}</span>
-          </a>
+          <RatingPill />
 
           <h1 className="mt-6 text-balance font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
             Dirty windows? Consider them handled.
@@ -50,6 +42,38 @@ export function Hero() {
         </div>
       </Container>
     </section>
+  );
+}
+
+// Google rating badge. Renders as a link to the GBP reviews only once a real URL is
+// set (site.googleRating.url !== "#"); otherwise a non-interactive badge — no dead links.
+function RatingPill() {
+  const { url, label } = site.googleRating;
+  const content = (
+    <>
+      <Stars />
+      <span>{label}</span>
+    </>
+  );
+  const className =
+    "inline-flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-1.5 text-sm font-medium text-ink shadow-sm";
+
+  if (url && url !== "#") {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${className} transition-colors hover:bg-white`}
+      >
+        {content}
+      </a>
+    );
+  }
+  return (
+    <span className={className} role="img" aria-label={label}>
+      {content}
+    </span>
   );
 }
 

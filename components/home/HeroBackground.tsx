@@ -3,12 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Full-bleed hero background video (client-supplied job footage).
+ * Full-bleed hero background video (client-supplied job footage, compressed to a
+ * 720p ~4MB MP4 with a poster frame).
  * - Autoplays muted/looping/inline so mobile browsers allow it.
- * - Respects prefers-reduced-motion (§4): if the user opts out of motion, we never
- *   autoplay — we show the first frame as a still via a paused, poster-less video,
- *   falling back to a solid ink wash so hero text stays legible.
- * The glass overlay for text contrast (§4) is rendered by the parent Hero.
+ * - `poster` (hero-poster.jpg) paints instantly and is the still shown to
+ *   prefers-reduced-motion users, who never get autoplay (§4). Without autoplay the
+ *   browser won't download the full video, so motion-reduced visitors save the bytes.
+ * - Solid ink wash underneath as the ultimate fallback. The glass overlay for text
+ *   contrast (§4) is rendered by the parent Hero.
  */
 export function HeroBackground() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -38,6 +40,7 @@ export function HeroBackground() {
         loop
         playsInline
         preload="metadata"
+        poster="/video/hero-poster.jpg"
         aria-hidden="true"
         tabIndex={-1}
       >

@@ -4,6 +4,7 @@ import { display, body } from "./fonts";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { Analytics } from "@/components/Analytics";
 import { localBusinessSchema } from "@/lib/schema";
 import { site } from "@/data/site";
 
@@ -48,6 +49,7 @@ export default function RootLayout({
         <Footer />
         {/* LocalBusiness structured data, sitewide (§8). */}
         <JsonLd data={localBusinessSchema()} />
+        <Analytics />
       </body>
     </html>
   );

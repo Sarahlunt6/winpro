@@ -23,6 +23,9 @@ export type Service = {
   valueProp: string;
   // Placeholder label shown in the cloud block until real photos arrive (§4).
   placeholderLabel: string;
+  // Final photo for this service. Drop a file in /public (e.g. "/photos/exterior.jpg")
+  // and set it here — the Placeholder swaps to next/image with zero layout shift.
+  image?: string;
   seasonal?: boolean; // Christmas Lights gets a "Seasonal" tag (§5.1 #3)
   // Extra framing for seasonal services (Christmas Lights install/takedown, §5.2).
   seasonalCallout?: {
