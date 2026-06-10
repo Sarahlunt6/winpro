@@ -33,12 +33,18 @@ export const areasServed = [
 ] as const;
 
 // Header nav. "Services" renders as a dropdown of the service pages (§3).
-export const primaryNav = [
+export type NavItem = {
+  label: string;
+  href: string;
+  hasDropdown?: boolean;
+};
+
+export const primaryNav: NavItem[] = [
   { label: "Services", href: "/services", hasDropdown: true },
   { label: "Plans", href: "/plans" },
   { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
-] as const;
+];
 
 // Trust strip — shown once, in the CTA band only (§5.1 #8).
 export const trustPoints = [

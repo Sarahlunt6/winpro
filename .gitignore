@@ -25,7 +25,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
+# local env files — never commit secrets (RESEND_API_KEY, etc. — §6, §9)
+.env
 .env*.local
 
 # vercel

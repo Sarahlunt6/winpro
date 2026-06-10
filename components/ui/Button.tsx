@@ -20,40 +20,60 @@ const sizes: Record<Size, string> = {
   lg: "min-h-[52px] px-7 text-base",
 };
 
-type CommonProps = {
+type ButtonProps = {
   variant?: Variant;
   size?: Size;
   className?: string;
   children: React.ReactNode;
+  /** When provided, renders a Next <Link>; otherwise a <button>. */
+  href?: string;
+  target?: string;
+  rel?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  onClick?: () => void;
+  "aria-label"?: string;
 };
 
-type ButtonAsLink = CommonProps & {
-  href: string;
-} & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "className" | "children">;
-
-type ButtonAsButton = CommonProps & {
-  href?: undefined;
-} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children">;
-
-type ButtonProps = ButtonAsLink | ButtonAsButton;
-
 /** Shared CTA primitive. Renders a Next <Link> when given `href`, else a <button>. */
-export function Button(props: ButtonProps) {
-  const { variant = "primary", size = "md", className, children } = props;
+export function Button({
+  variant = "primary",
+  size = "md",
+  className,
+  children,
+  href,
+  target,
+  rel,
+  type = "button",
+  disabled,
+  onClick,
+  "aria-label": ariaLabel,
+}: ButtonProps) {
   const classes = cn(base, variants[variant], sizes[size], className);
 
-  if (props.href !== undefined) {
-    const { href, variant: _v, size: _s, className: _c, children: _ch, ...rest } = props;
+  if (href !== undefined) {
     return (
-      <Link href={href} className={classes} {...rest}>
+      <Link
+        href={href}
+        target={target}
+        rel={rel}
+        onClick={onClick}
+        aria-label={ariaLabel}
+        className={classes}
+      >
         {children}
       </Link>
     );
   }
 
-  const { variant: _v, size: _s, className: _c, children: _ch, ...rest } = props;
   return (
-    <button className={classes} {...rest}>
+    <button
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      aria-label={ariaLabel}
+      className={classes}
+    >
       {children}
     </button>
   );
