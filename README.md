@@ -80,7 +80,7 @@ lives in `.env.example`.
 | Var | Phase | Purpose |
 |---|---|---|
 | `RESEND_API_KEY` | 2 | Resend API key for quote-email delivery (§6). Unset = dev mode (logs, no send). |
-| `QUOTE_TO_EMAIL` | 2 | Owner inbox for quote requests — confirm `winpro363@gmail.com` (§6, §12) |
+| `QUOTE_TO_EMAIL` | 2 | Owner inbox for quote requests — `winprollc363@gmail.com` (client-confirmed) |
 | `QUOTE_FROM_EMAIL` | 2 | Optional. Sender address. Defaults to Resend's `onboarding@resend.dev` until the `dirtywinpro.com` domain is verified (§6). |
 | `BEHOLD_FEED_URL` | 3 | Behold.so JSON feed URL for the @winprollc Instagram section (§7) |
 
@@ -108,6 +108,7 @@ slider's two `SlideFill` placeholders become two `<Image>`s — markup is otherw
 
 ## What the client still needs to provide
 
-See PRD §12. Short list: confirm the quote destination email, final job photos, logo
-files (SVG), connect Instagram to Behold, approve the homepage headline + plan copy,
-confirm Christmas Lights inclusions, and grant Resend domain-verification access.
+See PRD §12. Quote destination email is confirmed: **`winprollc363@gmail.com`**.
+Still needed: final job photos, logo files (SVG), connect Instagram to Behold, approve
+the homepage headline + plan copy, confirm Christmas Lights inclusions, and grant
+Resend domain-verification access.

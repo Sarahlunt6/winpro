@@ -8,8 +8,8 @@ import {
 } from "@/lib/quote";
 import { rateLimit } from "@/lib/rateLimit";
 
-// Owner inbox (§6). Falls back to the confirmed default if the env var is unset.
-const TO_EMAIL = process.env.QUOTE_TO_EMAIL || "winpro363@gmail.com";
+// Owner inbox (§6). Falls back to the client-confirmed address if the env var is unset.
+const TO_EMAIL = process.env.QUOTE_TO_EMAIL || "winprollc363@gmail.com";
 // Until the dirtywinpro.com sending domain is verified in Resend, use the
 // onboarding domain (§6 Resend setup). Override with QUOTE_FROM_EMAIL once verified.
 const FROM_EMAIL = process.env.QUOTE_FROM_EMAIL || "WinPro Website <onboarding@resend.dev>";

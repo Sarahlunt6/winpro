@@ -7,8 +7,8 @@ export const site = {
   tagline: "Window cleaning for St. George & Southern Utah",
   phone: "(435) 406-4455",
   phoneHref: "tel:+14354064455",
-  // Owner inbox for quote requests — confirm with client before Phase 2 (§6, §12).
-  quoteEmail: "winpro363@gmail.com",
+  // Owner inbox for quote requests — client-confirmed (§6, §12).
+  quoteEmail: "winprollc363@gmail.com",
   instagram: {
     handle: "@winprollc",
     url: "https://instagram.com/winprollc",
