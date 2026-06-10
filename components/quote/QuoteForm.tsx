@@ -26,6 +26,8 @@ const STEP_TITLES = [
 type QuoteFormProps = {
   /** Preselected plan interest (from /quote?plan=…). */
   defaultPlanInterest?: QuoteData["planInterest"];
+  /** Preselected service slugs (from /quote?service=… on service-page CTAs). */
+  defaultServices?: string[];
 };
 
 /**
@@ -34,12 +36,16 @@ type QuoteFormProps = {
  * validation (never alerts) · state preserved on back · honeypot · 48px+ targets.
  * On success: redirect to /thank-you.
  */
-export function QuoteForm({ defaultPlanInterest = "None" }: QuoteFormProps) {
+export function QuoteForm({
+  defaultPlanInterest = "None",
+  defaultServices = [],
+}: QuoteFormProps) {
   const router = useRouter();
   const [step, setStep] = useState(0);
   const [data, setData] = useState<QuoteData>({
     ...emptyQuote,
     planInterest: defaultPlanInterest,
+    services: defaultServices,
   });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [submitting, setSubmitting] = useState(false);

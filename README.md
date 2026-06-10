@@ -4,22 +4,39 @@ Custom Next.js 14 (App Router) + Tailwind rebuild of dirtywinpro.com. Deployed o
 Vercel, versioned on GitHub. See `winpro-redesign-prd.md` for the full spec — it is
 the source of truth. Section references below (e.g. §4) point into that PRD.
 
-## Status: Phase 2 (Lead engine) complete
+## Status: Phase 3 (Content pages) complete
 
 Built so far: design system, shared Header/Footer, full Home page with the
-placeholder system, the working before/after slider, the services/plans data
-sources, **the multi-step quote form, `/api/quote` → Resend delivery, `/thank-you`,
-and the `/plans` page**. Service pages, About, and Gallery remain lightweight stubs
-(Phase 3) so navigation never dead-ends. The Home hero plays a client-supplied
-background video (reduced-motion aware).
+placeholder system, the working before/after slider, the multi-step quote form +
+`/api/quote` → Resend delivery + `/thank-you`, the `/plans` page, **all 5 service
+pages, the About page, the filterable Gallery, and the Behold-powered Instagram
+section**. Every route is live with placeholder imagery. The Home hero plays a
+client-supplied background video (reduced-motion aware).
 
 | Phase | What it adds |
 |---|---|
 | **1 ✅** | Scaffold, design tokens, Header/Footer, Home, before/after slider, data |
 | **2 ✅** | Multi-step quote form, `/api/quote` → Resend, `/thank-you`, `/plans` |
-| 3 | 5 service pages, About, Gallery, Instagram (Behold) |
+| **3 ✅** | 5 service pages, About, Gallery, Instagram (Behold) |
 | 4 | Real photos, copy sign-off, SEO/schema, 301 redirects, Lighthouse |
 | 5 | DNS cutover |
+
+### Content pages (Phase 3)
+
+- **Service pages** — one shared template at `app/services/[slug]/page.tsx`, statically
+  generated for all 5 services from `data/services.ts` (§5.2): hero, 2-col "what's
+  included", "How it works", FAQ accordion (native `<details>`), CTA band. Christmas
+  Lights additionally renders a seasonal install/takedown callout with the Oct–Jan
+  booking note. Per-page metadata targets "{service} in St. George" naturally (§8).
+  Service-page CTAs deep-link `/quote?service=<slug>` to preselect that service.
+- **About** (`/about`) — story, values (Quality/Reliability/Integrity), team
+  placeholders, areas-served list (§5.5).
+- **Gallery** (`/gallery`) — client-side filter (All / Residential / Commercial /
+  Before & After) + lightbox, no reload. Items in `data/gallery.ts` (§5.4).
+- **Instagram** (`components/InstagramFeed.tsx`) — async server component that pulls
+  Behold's JSON feed when `BEHOLD_FEED_URL` is set, rendering the latest 4 with our
+  own card markup. No URL → placeholder grid; configured-but-failing → the section
+  collapses (never a broken embed, §7).
 
 ### Quote form & email (Phase 2)
 

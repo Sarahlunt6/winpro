@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { GalleryGrid } from "@/components/gallery/GalleryGrid";
+import { FinalCtaBand } from "@/components/home/FinalCtaBand";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -9,29 +10,21 @@ export const metadata: Metadata = {
     "Before-and-after window cleaning results and recent projects across St. George and Southern Utah.",
 };
 
-// Gallery (§5.4). Filterable grid + lightbox are built in Phase 3. Placeholder grid for now.
+// Gallery (§5.4): filterable grid + lightbox. Placeholder slots until real photos land.
 export default function GalleryPage() {
   return (
     <>
       <PageHero
         eyebrow="Our work"
         title="See the results for yourself"
-        description="A filterable before-and-after gallery with lightbox is coming in Phase 3. Real job photos drop into these slots with zero layout shift."
+        description="Filter by project type and tap any tile for a closer look. Real job photos drop into these slots with zero layout shift."
       />
       <section className="py-14 lg:py-20">
         <Container>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <Placeholder
-                key={i}
-                label={`Project ${i + 1} — photo TK`}
-                ratio="square"
-                className="rounded-2xl"
-              />
-            ))}
-          </div>
+          <GalleryGrid />
         </Container>
       </section>
+      <FinalCtaBand />
     </>
   );
 }

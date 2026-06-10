@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { QuoteForm } from "@/components/quote/QuoteForm";
 import { planSlugToInterest } from "@/lib/quote";
+import { getService } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Get a free quote",
@@ -14,9 +15,13 @@ export const metadata: Metadata = {
 export default function QuotePage({
   searchParams,
 }: {
-  searchParams: { plan?: string };
+  searchParams: { plan?: string; service?: string };
 }) {
   const defaultPlanInterest = planSlugToInterest(searchParams.plan);
+  // Only honor a ?service= value that maps to a real service slug.
+  const defaultServices = getService(searchParams.service ?? "")
+    ? [searchParams.service as string]
+    : [];
 
   return (
     <>
@@ -28,7 +33,10 @@ export default function QuotePage({
       <section className="py-12 lg:py-16">
         <Container>
           <div className="mx-auto max-w-2xl">
-            <QuoteForm defaultPlanInterest={defaultPlanInterest} />
+            <QuoteForm
+              defaultPlanInterest={defaultPlanInterest}
+              defaultServices={defaultServices}
+            />
           </div>
         </Container>
       </section>

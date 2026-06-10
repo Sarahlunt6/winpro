@@ -24,6 +24,12 @@ export type Service = {
   // Placeholder label shown in the cloud block until real photos arrive (§4).
   placeholderLabel: string;
   seasonal?: boolean; // Christmas Lights gets a "Seasonal" tag (§5.1 #3)
+  // Extra framing for seasonal services (Christmas Lights install/takedown, §5.2).
+  seasonalCallout?: {
+    title: string;
+    body: string;
+    bookingNote: string;
+  };
   // What's included — 3–4 benefit blocks for the 2-col service page section (§5.2).
   included: ServiceBenefit[];
   faqs: ServiceFaq[];
@@ -196,6 +202,11 @@ export const services: Service[] = [
       "We design, hang, maintain, and take down your holiday lights — lights and labor included.",
     placeholderLabel: "Christmas lights — photo TK",
     seasonal: true,
+    seasonalCallout: {
+      title: "Install, maintenance, and takedown — all handled",
+      body: "We hang it, we keep it lit, and we take it all down when the season's over. Commercial-grade lights and the labor are included, so you skip the ladder, the tangled boxes, and the January cleanup. Mid-season outage? We come back and fix it.",
+      bookingNote: "Booking runs October through January. Install slots fill fast through November — reserve early.",
+    },
     included: [
       {
         title: "We hang, maintain & remove",
