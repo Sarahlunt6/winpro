@@ -189,7 +189,7 @@ export function QuoteForm({
                         aria-pressed={selected}
                         onClick={() => toggleService(opt.slug)}
                         className={cn(
-                          "flex min-h-[52px] items-center justify-between gap-2 rounded-xl border px-4 py-3 text-left text-[15px] font-medium transition-colors",
+                          "flex min-h-[52px] items-center justify-between gap-2 rounded-xl border px-4 py-3 text-left text-base font-medium transition-colors",
                           selected
                             ? "border-sky bg-sky-light/40 text-ink"
                             : "border-ink/15 text-ink/80 hover:border-ink/30",
@@ -233,7 +233,7 @@ export function QuoteForm({
                   ref={autofocusRef as React.Ref<HTMLSelectElement>}
                   value={data.windowCount}
                   onChange={(e) => update("windowCount", e.target.value as QuoteData["windowCount"])}
-                  className="h-[52px] w-full rounded-xl border border-ink/15 bg-white px-4 text-[15px] text-ink focus:border-sky"
+                  className="h-[52px] w-full rounded-xl border border-ink/15 bg-white px-4 text-base text-ink focus:border-sky"
                 >
                   <option value="" disabled>
                     Select a range…
@@ -329,7 +329,7 @@ export function QuoteForm({
                   value={data.notes}
                   onChange={(e) => update("notes", e.target.value)}
                   rows={3}
-                  className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-[15px] text-ink focus:border-sky"
+                  className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-base text-ink focus:border-sky"
                   placeholder="Tell us anything that helps us quote accurately."
                 />
               </Field>
@@ -350,7 +350,7 @@ export function QuoteForm({
               type="button"
               onClick={goBack}
               disabled={submitting}
-              className="inline-flex min-h-[48px] items-center gap-1 rounded-full px-4 text-[15px] font-medium text-ink/70 hover:text-ink disabled:opacity-50"
+              className="inline-flex min-h-[48px] items-center gap-1 rounded-full px-4 text-base font-medium text-ink/70 hover:text-ink disabled:opacity-50"
             >
               <ArrowLeft />
               Back
@@ -426,7 +426,7 @@ function TextInput({
       placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="h-[52px] w-full rounded-xl border border-ink/15 bg-white px-4 text-[15px] text-ink placeholder:text-ink/35 focus:border-sky"
+      className="h-[52px] w-full rounded-xl border border-ink/15 bg-white px-4 text-base text-ink placeholder:text-ink/35 focus:border-sky"
     />
   );
 }
@@ -446,7 +446,7 @@ function Chip({
       aria-pressed={selected}
       onClick={onClick}
       className={cn(
-        "min-h-[48px] rounded-full border px-5 text-[15px] font-medium transition-colors",
+        "min-h-[48px] rounded-full border px-5 text-base font-medium transition-colors",
         selected
           ? "border-sky bg-sky text-white"
           : "border-ink/15 text-ink/80 hover:border-ink/30",

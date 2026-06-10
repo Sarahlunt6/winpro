@@ -18,8 +18,25 @@ client-supplied background video (reduced-motion aware).
 | **1 ✅** | Scaffold, design tokens, Header/Footer, Home, before/after slider, data |
 | **2 ✅** | Multi-step quote form, `/api/quote` → Resend, `/thank-you`, `/plans` |
 | **3 ✅** | 5 service pages, About, Gallery, Instagram (Behold) |
-| 4 | Real photos, copy sign-off, SEO/schema, 301 redirects, Lighthouse |
+| 4 ◑ | **SEO/schema, sitemap/robots, 301 redirects, mobile + a11y pass, logos — done.** Remaining: real photos, copy sign-off, Lighthouse run on prod. |
 | 5 | DNS cutover |
+
+### SEO & mobile pass (Phase 4)
+
+- **Metadata** — per-route titles (`%s | WinPro Window Cleaning`, service pages use a
+  shorter `… · St. George, UT | WinPro` to stay <60 chars) and <155-char descriptions
+  via `lib/seo.ts`; canonical URLs; OpenGraph + Twitter cards with a generated OG image
+  (`app/opengraph-image.tsx`).
+- **Structured data** (`lib/schema.ts`) — `LocalBusiness` sitewide (phone, areas, geo
+  for St. George), `Service` + `FAQPage` on each service page.
+- **`sitemap.ts`** (indexable routes, excludes `/thank-you`) and **`robots.ts`**.
+- **301 redirects** for old WordPress URLs in `next.config.mjs` — crawl the live site
+  for the full list before cutover.
+- **Logos** — `public/logo-wordmark.png` in the header, `public/logo-icon.png` in the
+  footer and as the favicon (`app/icon.png` / `app/apple-icon.png`).
+- **Mobile/a11y** — 16px+ inputs (no iOS zoom), 44px+ tap targets, mobile nav closes
+  on route change + locks body scroll, skip-link, one H1/page, descriptive alt text,
+  `prefers-reduced-motion` respected everywhere (incl. the hero video & slider).
 
 ### Content pages (Phase 3)
 

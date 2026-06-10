@@ -17,6 +17,13 @@ type PlaceholderProps = {
   className?: string;
   /** Render darker tint for use under light overlay text. */
   tone?: "cloud" | "ink";
+  /**
+   * Accessible name (§8 #5). Describes what the FINAL photo will show, so swapping
+   * in a real image is a no-op for screen readers. Defaults to `label`.
+   */
+  alt?: string;
+  /** Mark purely decorative (e.g. when an adjacent heading already names it). */
+  decorative?: boolean;
 };
 
 /**
@@ -29,11 +36,14 @@ export function Placeholder({
   ratio = "card",
   className,
   tone = "cloud",
+  alt,
+  decorative = false,
 }: PlaceholderProps) {
   return (
     <div
       role="img"
-      aria-label={label}
+      aria-label={decorative ? undefined : alt || label}
+      aria-hidden={decorative || undefined}
       className={cn(
         "relative flex items-center justify-center overflow-hidden",
         ratioClass[ratio],

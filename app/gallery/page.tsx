@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { GalleryGrid } from "@/components/gallery/GalleryGrid";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Gallery",
+export const metadata = buildMetadata({
+  title: "Project Gallery",
   description:
-    "Before-and-after window cleaning results and recent projects across St. George and Southern Utah.",
-};
+    "Before-and-after window cleaning results and recent projects across St. George & Southern Utah. See the WinPro difference.",
+  path: "/gallery",
+});
 
 // Gallery (§5.4): filterable grid + lightbox. Placeholder slots until real photos land.
 export default function GalleryPage() {

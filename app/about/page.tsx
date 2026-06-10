@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
+import { buildMetadata } from "@/lib/seo";
 import { areasServed } from "@/data/site";
 
-export const metadata: Metadata = {
-  title: "About WinPro",
+export const metadata = buildMetadata({
+  title: "About",
   description:
-    "WinPro is a locally owned window cleaning company serving St. George and Southern Utah. Quality, reliability, and integrity on every job.",
-};
+    "Locally owned window cleaning in St. George & Southern Utah, started in 2025 on honest work and a spotless finish. Meet the WinPro crew.",
+  path: "/about",
+});
 
 // Values — Quality, Reliability, Integrity (§5.5).
 const values = [
@@ -41,7 +42,12 @@ export default function AboutPage() {
       <section className="bg-white py-16 lg:py-24">
         <Container>
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
-            <Placeholder label="The WinPro crew — photo TK" ratio="wide" className="rounded-2xl" />
+            <Placeholder
+              label="The WinPro crew — photo TK"
+              alt="The WinPro window cleaning crew in St. George — team photo coming soon"
+              ratio="wide"
+              className="rounded-2xl"
+            />
             <div>
               <SectionHeading eyebrow="Our story" title="Started in 2025 by a couple of friends" />
               <div className="mt-6 space-y-4 text-[17px] leading-relaxed text-ink/75">
@@ -92,7 +98,12 @@ export default function AboutPage() {
           <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
             {Array.from({ length: 4 }).map((_, i) => (
               <div key={i}>
-                <Placeholder label={`Team member ${i + 1} — photo TK`} ratio="square" className="rounded-2xl" />
+                <Placeholder
+                  label={`Team member ${i + 1} — photo TK`}
+                  alt={`WinPro team member ${i + 1} — headshot coming soon`}
+                  ratio="square"
+                  className="rounded-2xl"
+                />
               </div>
             ))}
           </div>

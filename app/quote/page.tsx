@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { QuoteForm } from "@/components/quote/QuoteForm";
+import { buildMetadata } from "@/lib/seo";
 import { planSlugToInterest } from "@/lib/quote";
 import { getService } from "@/data/services";
 
-export const metadata: Metadata = {
-  title: "Get a free quote",
+export const metadata = buildMetadata({
+  title: "Get a Free Quote",
   description:
-    "Get a free, no-pressure quote for window cleaning in St. George and Southern Utah. A few quick questions and we'll get you a price.",
-};
+    "Get a free, no-pressure window cleaning quote for St. George & Southern Utah. Five quick questions and we'll get you a price.",
+  path: "/quote",
+});
 
 // /quote (§6). Plan can be preselected via ?plan=quarterly (from /plans cards, §5.3).
 export default function QuotePage({

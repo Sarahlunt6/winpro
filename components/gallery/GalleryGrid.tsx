@@ -74,7 +74,11 @@ export function GalleryGrid() {
             className="group relative overflow-hidden rounded-2xl text-left focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2"
             aria-label={`View ${item.label}`}
           >
-            <Placeholder label={item.label} ratio="square" />
+            <Placeholder
+              label={item.label}
+              alt={`${item.label} — ${item.category} window cleaning project by WinPro, photo coming soon`}
+              ratio="square"
+            />
             <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-ink/70">
               {item.category}
             </span>
@@ -100,7 +104,12 @@ export function GalleryGrid() {
             className="relative w-full max-w-3xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <Placeholder label={active.label} ratio="wide" className="rounded-2xl" />
+            <Placeholder
+              label={active.label}
+              alt={`${active.label} — ${active.category} window cleaning project by WinPro, photo coming soon`}
+              ratio="wide"
+              className="rounded-2xl"
+            />
             <div className="mt-3 flex items-center justify-between text-white">
               <p className="text-sm font-medium">
                 {active.label} · {active.category}

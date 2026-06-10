@@ -76,6 +76,7 @@ export async function InstagramFeed() {
                 <Placeholder
                   key={i}
                   label={`Instagram post ${i + 1} — feed TK`}
+                  alt={`Recent WinPro window cleaning job in Southern Utah — Instagram photo ${i + 1}, coming soon`}
                   ratio="square"
                   className="rounded-2xl"
                 />

@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { PlanCard } from "@/components/PlanCard";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
+import { buildMetadata } from "@/lib/seo";
 import { plans } from "@/data/plans";
 
-export const metadata: Metadata = {
-  title: "Maintenance plans",
+export const metadata = buildMetadata({
+  title: "Maintenance Plans",
   description:
-    "Monthly, quarterly, and bi-annual window cleaning plans for St. George homes and businesses. Priority scheduling and member rates.",
-};
+    "Monthly, quarterly, and bi-annual window cleaning plans for St. George homes & businesses. Priority scheduling and member rates.",
+  path: "/plans",
+});
 
 // Plans page (§5.3). Pricing intentionally omitted (§11) — card supports an optional price.
 export default function PlansPage() {
@@ -22,6 +23,7 @@ export default function PlansPage() {
       />
       <section className="py-14 lg:py-20">
         <Container>
+          <h2 className="sr-only">Our maintenance plans</h2>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             {plans.map((plan) => (
               <PlanCard key={plan.slug} plan={plan} />

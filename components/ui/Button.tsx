@@ -16,7 +16,7 @@ const variants: Record<Variant, string> = {
 
 // 48px+ touch targets for the lead-gen CTAs (§6 UX).
 const sizes: Record<Size, string> = {
-  md: "min-h-[44px] px-5 text-[15px]",
+  md: "min-h-[44px] px-5 text-base",
   lg: "min-h-[52px] px-7 text-base",
 };
 

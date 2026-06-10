@@ -1,20 +1,35 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 /**
- * Interim wordmark. Inherits text color from its parent (so it works on light and
- * dark backgrounds); the "Pro" accent is always sky. The client will supply final
- * logo files (SVG preferred, §12) — swap this component's internals then.
+ * WinPro wordmark (dark text on transparent) — for use on light backgrounds like the
+ * header. Intrinsic size 500×142; constrain height via `className` (e.g. h-8 w-auto).
  */
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, priority = false }: { className?: string; priority?: boolean }) {
   return (
-    <span
-      className={cn(
-        "inline-flex items-baseline font-display text-2xl font-extrabold tracking-tight",
-        className,
-      )}
-    >
-      Win
-      <span className="text-sky">Pro</span>
-    </span>
+    <Image
+      src="/logo-wordmark.png"
+      alt="WinPro Window Cleaning"
+      width={500}
+      height={142}
+      priority={priority}
+      className={cn("h-8 w-auto", className)}
+    />
+  );
+}
+
+/**
+ * Square WinPro icon (squeegee mark on a dark tile) — for dark backgrounds like the
+ * footer, and reused as the favicon/app icon. Intrinsic 350×350.
+ */
+export function LogoIcon({ className }: { className?: string }) {
+  return (
+    <Image
+      src="/logo-icon.png"
+      alt="WinPro Window Cleaning"
+      width={350}
+      height={350}
+      className={cn("h-12 w-12", className)}
+    />
   );
 }

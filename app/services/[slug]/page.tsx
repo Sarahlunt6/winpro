@@ -8,6 +8,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HowItWorks } from "@/components/HowItWorks";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
+import { JsonLd } from "@/components/JsonLd";
+import { serviceSchema, faqSchema } from "@/lib/schema";
+import { OG_IMAGE } from "@/lib/seo";
 import { services, getService } from "@/data/services";
 
 // Pre-render all five service pages at build time (§3, §5.2).
@@ -18,12 +21,22 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const service = getService(params.slug);
   if (!service) return {};
-  // Local SEO: target "{service} in St. George" naturally, not stuffed (§8).
-  const title = `${service.name} in St. George & Southern Utah`;
+  // Local SEO: "{service} · St. George" in the title, under 60 chars (§8).
+  // Brand shortened to "WinPro" here so the local phrase fits the length budget.
+  const title = `${service.name} · St. George, UT | WinPro`;
+  const description = `${service.valueProp} Serving St. George & Southern Utah — free quotes.`;
   return {
-    title,
-    description: service.valueProp,
-    openGraph: { title: `${title} · WinPro`, description: service.valueProp },
+    title: { absolute: title },
+    description,
+    alternates: { canonical: `/services/${service.slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `/services/${service.slug}`,
+      type: "website",
+      images: [OG_IMAGE],
+    },
+    twitter: { card: "summary_large_image", title, description, images: [OG_IMAGE.url] },
   };
 }
 
@@ -31,8 +44,14 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = getService(params.slug);
   if (!service) notFound();
 
+  // Related services for internal linking (§8 #6) — the other four services.
+  const related = services.filter((s) => s.slug !== service.slug);
+
   return (
     <>
+      <JsonLd data={serviceSchema(service)} />
+      <JsonLd data={faqSchema(service.faqs)} />
+
       {/* Hero: service name + value prop over a photo placeholder */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -40,6 +59,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             label={service.placeholderLabel}
             ratio="hero"
             tone="ink"
+            decorative
             className="h-full w-full !aspect-auto"
           />
           <div className="absolute inset-0 bg-glass" />
@@ -53,7 +73,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               ← All services
             </Link>
             <h1 className="mt-4 text-balance font-display text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl">
-              {service.name}
+              {service.name} in St. George
             </h1>
             <p className="mt-4 max-w-xl text-lg text-white/85">{service.valueProp}</p>
             <div className="mt-8">
@@ -93,6 +113,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <Placeholder
               label={service.placeholderLabel}
+              alt={`${service.name} by WinPro at a St. George home — project photo coming soon`}
               ratio="wide"
               className="rounded-2xl"
             />
@@ -135,8 +156,49 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </Container>
       </section>
 
+      {/* Related services + plans — internal linking (§8 #6) */}
+      <section className="bg-white py-16 lg:py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="Explore more"
+            title="Other services you might need"
+            description="Bundle services on one visit, or keep your glass clear year-round with a maintenance plan."
+          />
+          <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="flex min-h-[56px] items-center justify-between gap-3 rounded-2xl border border-ink/10 bg-cloud px-5 py-4 text-base font-medium text-ink transition-colors hover:border-sky hover:bg-sky-light/30"
+                >
+                  {s.name}
+                  <ArrowRight />
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/plans"
+                className="flex min-h-[56px] items-center justify-between gap-3 rounded-2xl border border-sky bg-sky-light/30 px-5 py-4 text-base font-semibold text-ink transition-colors hover:bg-sky-light/50"
+              >
+                See maintenance plans
+                <ArrowRight />
+              </Link>
+            </li>
+          </ul>
+        </Container>
+      </section>
+
       <FinalCtaBand />
     </>
+  );
+}
+
+function ArrowRight() {
+  return (
+    <svg className="h-4 w-4 shrink-0 text-sky" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
   );
 }
 

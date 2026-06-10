@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -14,6 +15,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const servicesRef = useRef<HTMLLIElement>(null);
+  const pathname = usePathname();
 
   // Close the desktop dropdown on outside click / Escape.
   useEffect(() => {
@@ -33,12 +35,31 @@ export function Header() {
     };
   }, []);
 
+  // Close the mobile menu whenever the route changes (§ mobile nav).
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  // Lock body scroll while the mobile menu is open (§ mobile nav).
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-white/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-white/90 backdrop-blur-md">
       <Container>
         <div className="flex h-16 items-center justify-between gap-4 lg:h-20">
-          <Link href="/" className="shrink-0" aria-label={`${site.name} home`}>
-            <Logo className="h-7 w-auto" />
+          <Link
+            href="/"
+            className="flex shrink-0 items-center"
+            aria-label="WinPro — home"
+          >
+            <Logo priority className="h-7 w-auto sm:h-8" />
           </Link>
 
           {/* Desktop nav */}
@@ -52,7 +73,7 @@ export function Header() {
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
                       onClick={() => setServicesOpen((v) => !v)}
-                      className="flex items-center gap-1 rounded-full px-4 py-2 text-[15px] font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
+                      className="flex min-h-[44px] items-center gap-1 rounded-full px-4 text-base font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
                     >
                       {item.label}
                       <ChevronDown
@@ -68,8 +89,7 @@ export function Header() {
                           <li>
                             <Link
                               href="/services"
-                              onClick={() => setServicesOpen(false)}
-                              className="block rounded-xl px-3 py-2 text-sm font-semibold text-ink hover:bg-cloud"
+                              className="block rounded-xl px-3 py-2.5 text-base font-semibold text-ink hover:bg-cloud"
                             >
                               All services
                             </Link>
@@ -78,8 +98,7 @@ export function Header() {
                             <li key={service.slug}>
                               <Link
                                 href={`/services/${service.slug}`}
-                                onClick={() => setServicesOpen(false)}
-                                className="flex items-center justify-between rounded-xl px-3 py-2 text-sm text-ink/80 hover:bg-cloud hover:text-ink"
+                                className="flex items-center justify-between rounded-xl px-3 py-2.5 text-base text-ink/80 hover:bg-cloud hover:text-ink"
                               >
                                 {service.navLabel}
                                 {service.seasonal && <SeasonalTag />}
@@ -94,7 +113,7 @@ export function Header() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="rounded-full px-4 py-2 text-[15px] font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
+                      className="flex min-h-[44px] items-center rounded-full px-4 text-base font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
                     >
                       {item.label}
                     </Link>
@@ -107,7 +126,7 @@ export function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href={site.phoneHref}
-              className="text-[15px] font-medium text-ink/80 transition-colors hover:text-ink"
+              className="flex min-h-[44px] items-center text-base font-medium text-ink/80 transition-colors hover:text-ink"
             >
               {site.phone}
             </a>
@@ -118,7 +137,7 @@ export function Header() {
 
           {/* Mobile controls */}
           <div className="flex items-center gap-2 lg:hidden">
-            <Button href="/quote" size="md" className="px-4 text-sm">
+            <Button href="/quote" size="md">
               Free quote
             </Button>
             <button
@@ -143,8 +162,7 @@ export function Header() {
                 <li>
                   <Link
                     href="/services"
-                    onClick={() => setMobileOpen(false)}
-                    className="block rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-cloud"
+                    className="flex min-h-[44px] items-center rounded-xl px-3 text-base font-semibold text-ink hover:bg-cloud"
                   >
                     Services
                   </Link>
@@ -153,8 +171,7 @@ export function Header() {
                       <li key={service.slug}>
                         <Link
                           href={`/services/${service.slug}`}
-                          onClick={() => setMobileOpen(false)}
-                          className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-[15px] text-ink/75 hover:bg-cloud hover:text-ink"
+                          className="flex min-h-[44px] items-center gap-2 rounded-xl px-3 text-base text-ink/75 hover:bg-cloud hover:text-ink"
                         >
                           {service.navLabel}
                           {service.seasonal && <SeasonalTag />}
@@ -169,8 +186,7 @@ export function Header() {
                     <li key={item.href}>
                       <Link
                         href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block rounded-xl px-3 py-3 text-base font-medium text-ink/80 hover:bg-cloud hover:text-ink"
+                        className="flex min-h-[44px] items-center rounded-xl px-3 text-base font-medium text-ink/80 hover:bg-cloud hover:text-ink"
                       >
                         {item.label}
                       </Link>
@@ -184,7 +200,7 @@ export function Header() {
               </Button>
               <a
                 href={site.phoneHref}
-                className="text-center text-base font-medium text-ink/80"
+                className="flex min-h-[44px] items-center justify-center text-base font-medium text-ink/80"
               >
                 Call {site.phone}
               </a>
@@ -198,7 +214,7 @@ export function Header() {
 
 function SeasonalTag() {
   return (
-    <span className="rounded-full bg-sky-light px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-ink/70">
+    <span className="rounded-full bg-sky-light px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-ink/70">
       Seasonal
     </span>
   );

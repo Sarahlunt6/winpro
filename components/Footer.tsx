@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { Logo } from "@/components/ui/Logo";
+import { LogoIcon } from "@/components/ui/Logo";
 import { areasServed, primaryNav, site } from "@/data/site";
 import { services } from "@/data/services";
 
@@ -8,21 +8,25 @@ import { services } from "@/data/services";
 export function Footer() {
   const year = 2026; // Build-time constant; bump or derive at render if desired.
 
+  // Footer links: plain crawlable anchors with a 44px min tap target (§8, mobile).
+  const linkCls =
+    "flex min-h-[44px] items-center text-[15px] transition-colors hover:text-white";
+
   return (
     <footer className="bg-ink text-white/70">
       <Container className="py-14 lg:py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* Brand + social */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Logo className="text-white [&_span]:text-sky" />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
+            <LogoIcon className="h-14 w-14 rounded-xl" />
+            <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-white/60">
               {site.tagline}. Licensed, insured, and local.
             </p>
             <a
               href={site.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
+              className="mt-4 inline-flex min-h-[44px] items-center gap-2 text-[15px] font-medium text-white/80 transition-colors hover:text-white"
             >
               <InstagramIcon />
               {site.instagram.handle}
@@ -34,13 +38,10 @@ export function Footer() {
             <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
               Services
             </h2>
-            <ul className="mt-4 space-y-2.5 text-sm">
+            <ul className="mt-3">
               {services.map((service) => (
                 <li key={service.slug}>
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="transition-colors hover:text-white"
-                  >
+                  <Link href={`/services/${service.slug}`} className={linkCls}>
                     {service.navLabel}
                   </Link>
                 </li>
@@ -53,7 +54,7 @@ export function Footer() {
             <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
               Areas served
             </h2>
-            <ul className="mt-4 space-y-2.5 text-sm">
+            <ul className="mt-3 space-y-2.5 text-[15px]">
               {areasServed.map((city) => (
                 <li key={city}>{city}</li>
               ))}
@@ -65,32 +66,32 @@ export function Footer() {
             <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
               Company
             </h2>
-            <ul className="mt-4 space-y-2.5 text-sm">
+            <ul className="mt-3">
               {primaryNav
                 .filter((i) => !i.hasDropdown)
                 .map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="transition-colors hover:text-white">
+                    <Link href={item.href} className={linkCls}>
                       {item.label}
                     </Link>
                   </li>
                 ))}
               <li>
-                <Link href="/quote" className="transition-colors hover:text-white">
+                <Link href="/quote" className={linkCls}>
                   Get a free quote
                 </Link>
               </li>
             </ul>
             <a
               href={site.phoneHref}
-              className="mt-5 inline-block text-lg font-semibold text-white transition-colors hover:text-sky-light"
+              className="mt-3 flex min-h-[44px] items-center text-lg font-semibold text-white transition-colors hover:text-sky-light"
             >
               {site.phone}
             </a>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-[13px] text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>
