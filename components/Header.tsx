@@ -64,10 +64,10 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b backdrop-blur-md transition-colors duration-300",
+        "sticky top-0 z-50 border-b transition-all duration-300",
         scrolled
-          ? "border-ink/10 bg-white/90"
-          : "border-transparent bg-white/40"
+          ? "border-ink/10 bg-white/95 backdrop-blur-md"
+          : "border-white/10 bg-ink/30 backdrop-blur-md"
       )}
     >
       <Container>
@@ -91,7 +91,12 @@ export function Header() {
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
                       onClick={() => setServicesOpen((v) => !v)}
-                      className="flex min-h-[44px] items-center gap-1 rounded-full px-4 text-base font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
+                      className={cn(
+                        "flex min-h-[44px] items-center gap-1 rounded-full px-4 text-base font-medium transition-colors",
+                        scrolled
+                          ? "text-ink/80 hover:bg-cloud hover:text-ink"
+                          : "text-white/90 hover:bg-white/10 hover:text-white"
+                      )}
                     >
                       {item.label}
                       <ChevronDown
@@ -131,7 +136,12 @@ export function Header() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="flex min-h-[44px] items-center rounded-full px-4 text-base font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
+                      className={cn(
+                        "flex min-h-[44px] items-center rounded-full px-4 text-base font-medium transition-colors",
+                        scrolled
+                          ? "text-ink/80 hover:bg-cloud hover:text-ink"
+                          : "text-white/90 hover:bg-white/10 hover:text-white"
+                      )}
                     >
                       {item.label}
                     </Link>
@@ -144,7 +154,12 @@ export function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href={site.phoneHref}
-              className="flex min-h-[44px] items-center text-base font-medium text-ink/80 transition-colors hover:text-ink"
+              className={cn(
+                "flex min-h-[44px] items-center text-base font-medium transition-colors",
+                scrolled
+                  ? "text-ink/80 hover:text-ink"
+                  : "text-white/90 hover:text-white"
+              )}
             >
               {site.phone}
             </a>

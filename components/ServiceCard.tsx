@@ -2,24 +2,30 @@ import Link from "next/link";
 import { Placeholder } from "@/components/ui/Placeholder";
 import type { Service } from "@/data/services";
 
+type ServiceCardProps = {
+  service: Service;
+  /** Card size variant for bento layout */
+  size?: "large" | "small";
+};
+
 /**
- * Service photo card (§5.1 #3): 4:5 image with the service name centered,
+ * Service photo card (§5.1 #3): image with the service name centered,
  * on hover reveals description and learn more arrow. Links to service page.
  * Christmas Lights gets a subtle "Seasonal" tag.
  */
-export function ServiceCard({ service }: { service: Service }) {
+export function ServiceCard({ service, size = "small" }: ServiceCardProps) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group relative block overflow-hidden rounded-2xl ring-1 ring-ink/10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group relative block h-full overflow-hidden rounded-2xl ring-1 ring-ink/10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       {/* Decorative: the visible service name (h3 below) is the accessible label. */}
       <Placeholder
         label={service.placeholderLabel}
-        ratio="card"
+        ratio={size === "large" ? "wide" : "square"}
         decorative
         src={service.image}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        sizes={size === "large" ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 640px) 100vw, 25vw"}
       />
 
       {/* legibility overlay - darker on hover */}

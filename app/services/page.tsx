@@ -23,9 +23,11 @@ export default function ServicesPage() {
       <section className="py-14 lg:py-20">
         <Container>
           <h2 className="sr-only">All services</h2>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-wrap justify-center gap-5">
             {services.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+              <div key={service.slug} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">
+                <ServiceCard service={service} />
+              </div>
             ))}
           </div>
         </Container>
