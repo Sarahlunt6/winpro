@@ -67,7 +67,7 @@ export function Header() {
         "sticky top-0 z-50 border-b transition-all duration-300",
         scrolled
           ? "border-ink/10 bg-white/95 backdrop-blur-md"
-          : "border-white/10 bg-ink/30 backdrop-blur-md"
+          : "border-white/20 bg-black/20 backdrop-blur-sm"
       )}
     >
       <Container>
