@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 type SlideContent = {
@@ -8,6 +9,8 @@ type SlideContent = {
   label: string;
   /** Background tone so the two halves read as distinct shots. */
   tone: "dirty" | "clean";
+  /** Optional image path. When provided, renders next/image instead of placeholder. */
+  image?: string;
 };
 
 type BeforeAfterSliderProps = {
@@ -143,6 +146,29 @@ function SlideFill({
   corner: "bottom-left" | "bottom-right";
   badge: string;
 }) {
+  // If image is provided, render next/image instead of placeholder
+  if (content.image) {
+    return (
+      <div className="absolute inset-0">
+        <Image
+          src={content.image}
+          alt={content.label}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 80vw"
+        />
+        <span
+          className={cn(
+            "absolute bottom-3 rounded-full bg-glass px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-sm",
+            corner === "bottom-left" ? "left-3" : "right-3",
+          )}
+        >
+          {badge}
+        </span>
+      </div>
+    );
+  }
+
   // Placeholder fills (Phase 1). "dirty" reads muted/gray, "clean" reads bright sky-tint,
   // so the comparison is legible before real photos exist.
   const tone =

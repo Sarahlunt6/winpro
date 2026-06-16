@@ -208,6 +208,7 @@ export const services: Service[] = [
     valueProp:
       "We design, hang, maintain, and take down your holiday lights — lights and labor included.",
     placeholderLabel: "Christmas lights — photo TK",
+    image: "/photos/christmas-lights.jpg",
     seasonal: true,
     seasonalCallout: {
       title: "Install, maintenance, and takedown — all handled",
