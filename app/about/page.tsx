@@ -86,30 +86,6 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Team */}
-      <section className="bg-white py-16 lg:py-24">
-        <Container>
-          <SectionHeading
-            align="center"
-            eyebrow="The team"
-            title="The folks behind the squeegee"
-            description="Photos and bios coming soon — the same friendly faces on every visit."
-          />
-          <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div key={i}>
-                <Placeholder
-                  label={`Team member ${i + 1} — photo TK`}
-                  alt={`WinPro team member ${i + 1} — headshot coming soon`}
-                  ratio="square"
-                  className="rounded-2xl"
-                />
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       {/* Areas served */}
       <section className="bg-cloud py-16 lg:py-24">
         <Container>

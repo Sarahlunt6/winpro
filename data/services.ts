@@ -23,9 +23,11 @@ export type Service = {
   valueProp: string;
   // Placeholder label shown in the cloud block until real photos arrive (§4).
   placeholderLabel: string;
-  // Final photo for this service. Drop a file in /public (e.g. "/photos/exterior.jpg")
+  // Final photo for this service (hero). Drop a file in /public (e.g. "/photos/exterior.jpg")
   // and set it here — the Placeholder swaps to next/image with zero layout shift.
   image?: string;
+  // Secondary image for the "What's included" section on service pages.
+  sectionImage?: string;
   // Additional images for the service page gallery section.
   images?: string[];
   seasonal?: boolean; // Christmas Lights gets a "Seasonal" tag (§5.1 #3)
@@ -49,6 +51,7 @@ export const services: Service[] = [
       "Streak-free glass, frames, and sills — washed by hand and finished spotless.",
     placeholderLabel: "Exterior cleaning — photo TK",
     image: "/photos/outdoor-1.jpg",
+    sectionImage: "/photos/action-water-pole.png",
     images: [
       "/photos/outdoor-2.jpg",
       "/photos/outdoor-3.jpg",
@@ -110,8 +113,8 @@ export const services: Service[] = [
       "Clear glass from the inside out, with your floors and furniture protected the whole time.",
     placeholderLabel: "Interior cleaning — photo TK",
     image: "/photos/indoor-1.jpg",
+    sectionImage: "/photos/indoor-2.jpg",
     images: [
-      "/photos/indoor-2.jpg",
       "/photos/indoor-3.jpg",
     ],
     included: [
@@ -152,6 +155,7 @@ export const services: Service[] = [
       "Window screens removed, deep-cleaned, and reset so more light and air gets in.",
     placeholderLabel: "Screen cleaning — photo TK",
     image: "/photos/action-water-pole.png",
+    sectionImage: "/photos/action-employees.jpg",
     included: [
       {
         title: "Removed & hand-cleaned",
@@ -190,6 +194,7 @@ export const services: Service[] = [
       "A hydrophobic coating that helps glass shed water and resist hard-water spots longer.",
     placeholderLabel: "Protective coating — photo TK",
     image: "/photos/exterior-water-pole.jpg",
+    sectionImage: "/photos/exterior-pool.jpg",
     included: [
       {
         title: "Hard-water defense",
@@ -228,6 +233,7 @@ export const services: Service[] = [
       "We design, hang, maintain, and take down your holiday lights — lights and labor included.",
     placeholderLabel: "Christmas lights — photo TK",
     image: "/photos/christmas-lights.jpg",
+    sectionImage: "/photos/christmas-lights-2.jpg",
     seasonal: true,
     seasonalCallout: {
       title: "Install, maintenance, and takedown — all handled",

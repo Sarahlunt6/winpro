@@ -119,7 +119,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               alt={`${service.name} by WinPro at a St. George home — project photo coming soon`}
               ratio="wide"
               className="rounded-2xl"
-              src={service.image}
+              src={service.sectionImage || service.image}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div>
