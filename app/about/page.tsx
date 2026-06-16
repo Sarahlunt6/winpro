@@ -43,10 +43,12 @@ export default function AboutPage() {
         <Container>
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <Placeholder
-              label="The WinPro crew — photo TK"
-              alt="The WinPro window cleaning crew in St. George — team photo coming soon"
+              label="The WinPro crew"
+              alt="The WinPro window cleaning crew in St. George"
               ratio="wide"
               className="rounded-2xl"
+              src="/photos/action-employees.jpg"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div>
               <SectionHeading eyebrow="Our story" title="Started in 2025 by a couple of friends" />
