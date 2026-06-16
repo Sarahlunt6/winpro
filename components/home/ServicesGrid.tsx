@@ -21,17 +21,21 @@ export function ServicesGrid() {
           </Button>
         </div>
 
-        {/* Bento grid: 2 large cards on top, 3 smaller below */}
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {/* First row: 2 large cards spanning 2 columns each */}
+        {/* Bento grid: 2 large cards on top, Christmas lights on right spanning 2 rows, 2 smaller below */}
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* First row: 2 large cards */}
           {services.slice(0, 2).map((service, i) => (
-            <Reveal key={service.slug} delay={i * 60} className="sm:col-span-1 lg:col-span-2">
+            <Reveal key={service.slug} delay={i * 60}>
               <ServiceCard service={service} size="large" />
             </Reveal>
           ))}
-          {/* Second row: 3 smaller cards + 1 taking remaining space */}
-          {services.slice(2, 5).map((service, i) => (
-            <Reveal key={service.slug} delay={(i + 2) * 60} className={i === 2 ? "sm:col-span-2 lg:col-span-1" : ""}>
+          {/* Christmas lights spans 2 rows on lg */}
+          <Reveal delay={120} className="sm:col-span-2 lg:col-span-1 lg:row-span-2">
+            <ServiceCard service={services[4]} size="large" />
+          </Reveal>
+          {/* Second row: 2 smaller cards */}
+          {services.slice(2, 4).map((service, i) => (
+            <Reveal key={service.slug} delay={(i + 3) * 60}>
               <ServiceCard service={service} size="small" />
             </Reveal>
           ))}

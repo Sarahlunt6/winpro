@@ -23,10 +23,22 @@ export default function ServicesPage() {
       <section className="py-14 lg:py-20">
         <Container>
           <h2 className="sr-only">All services</h2>
-          <div className="flex flex-wrap justify-center gap-5">
-            {services.map((service) => (
-              <div key={service.slug} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">
-                <ServiceCard service={service} />
+          {/* Bento grid: 2 large cards on top, 3 smaller below */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {/* First row: 2 large cards */}
+            {services.slice(0, 2).map((service) => (
+              <div key={service.slug} className="lg:col-span-1">
+                <ServiceCard service={service} size="large" />
+              </div>
+            ))}
+            {/* Christmas lights spans to fill row on lg */}
+            <div className="sm:col-span-2 lg:col-span-1 lg:row-span-2">
+              <ServiceCard service={services[4]} size="large" />
+            </div>
+            {/* Second row: 2 smaller cards */}
+            {services.slice(2, 4).map((service) => (
+              <div key={service.slug}>
+                <ServiceCard service={service} size="small" />
               </div>
             ))}
           </div>
