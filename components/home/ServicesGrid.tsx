@@ -21,10 +21,18 @@ export function ServicesGrid() {
           </Button>
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-5">
-          {services.map((service, i) => (
-            <Reveal key={service.slug} delay={i * 60} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">
-              <ServiceCard service={service} />
+        {/* Bento grid: 2 large cards on top, 3 smaller below */}
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* First row: 2 large cards spanning 2 columns each */}
+          {services.slice(0, 2).map((service, i) => (
+            <Reveal key={service.slug} delay={i * 60} className="sm:col-span-1 lg:col-span-2">
+              <ServiceCard service={service} size="large" />
+            </Reveal>
+          ))}
+          {/* Second row: 3 smaller cards + 1 taking remaining space */}
+          {services.slice(2, 5).map((service, i) => (
+            <Reveal key={service.slug} delay={(i + 2) * 60} className={i === 2 ? "sm:col-span-2 lg:col-span-1" : ""}>
+              <ServiceCard service={service} size="small" />
             </Reveal>
           ))}
         </div>
