@@ -45,35 +45,19 @@ export function Hero() {
   );
 }
 
-// Google rating badge. Renders as a link to the GBP reviews only once a real URL is
-// set (site.googleRating.url !== "#"); otherwise a non-interactive badge — no dead links.
+// Google rating badge linking to the GBP reviews page.
 function RatingPill() {
   const { url, label } = site.googleRating;
-  const content = (
-    <>
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-1.5 text-sm font-medium text-ink shadow-sm transition-colors hover:bg-white"
+    >
       <Stars />
       <span>{label}</span>
-    </>
-  );
-  const className =
-    "inline-flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-1.5 text-sm font-medium text-ink shadow-sm";
-
-  if (url && url !== "#") {
-    return (
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${className} transition-colors hover:bg-white`}
-      >
-        {content}
-      </a>
-    );
-  }
-  return (
-    <span className={className} role="img" aria-label={label}>
-      {content}
-    </span>
+    </a>
   );
 }
 

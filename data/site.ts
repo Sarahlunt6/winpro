@@ -16,8 +16,8 @@ export const site = {
   googleRating: {
     value: "5.0",
     label: "5.0 stars on Google",
-    // TODO: link to the real Google Business Profile reviews URL before launch.
-    url: "#",
+    url: "https://www.google.com/search?q=win+pro+llc&rlz=1C5MACD_enUS1128US1128&oq=win+pro+llc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yCAgCEAAYFhgeMgoIAxAAGIAEGKIEMgoIBBAAGIAEGKIEMgcIBRAAGO8F0gEIMzM3NWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x6eeb60d5cd6a1e2d:0xbaedbbf3f1dbe62f,1,,,,",
+    leaveReviewUrl: "https://www.google.com/search?q=win+pro+llc&rlz=1C5MACD_enUS1128US1128&oq=win+pro+llc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yCAgCEAAYFhgeMgoIAxAAGIAEGKIEMgoIBBAAGIAEGKIEMgcIBRAAGO8F0gEIMzM3NWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x6eeb60d5cd6a1e2d:0xbaedbbf3f1dbe62f,3,,,,",
   },
   domain: "dirtywinpro.com",
 } as const;
@@ -42,6 +42,7 @@ export type NavItem = {
 export const primaryNav: NavItem[] = [
   { label: "Services", href: "/services", hasDropdown: true },
   { label: "Plans", href: "/plans" },
+  { label: "Reviews", href: "/reviews" },
   { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
 ];
