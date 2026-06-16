@@ -2,29 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { Placeholder } from "@/components/ui/Placeholder";
-import { cn } from "@/lib/cn";
-import {
-  galleryCategories,
-  galleryItems,
-  type GalleryItem,
-} from "@/data/gallery";
-
-const filters = ["All", ...galleryCategories] as const;
-type Filter = (typeof filters)[number];
+import { galleryItems, type GalleryItem } from "@/data/gallery";
 
 /**
- * Filterable gallery grid with a lightbox (§5.4). Filtering is client-side (no
- * page reload). Lightbox traps focus lightly, closes on Escape / backdrop click,
- * and restores scroll. Real photos swap into the same 1:1 slots later.
+ * Gallery grid with a lightbox (§5.4). Lightbox traps focus lightly, closes on
+ * Escape / backdrop click, and restores scroll.
  */
 export function GalleryGrid() {
-  const [filter, setFilter] = useState<Filter>("All");
   const [active, setActive] = useState<GalleryItem | null>(null);
-
-  const visible =
-    filter === "All"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === filter);
 
   // Lock scroll + close on Escape while the lightbox is open.
   useEffect(() => {
@@ -43,30 +28,9 @@ export function GalleryGrid() {
 
   return (
     <div>
-      {/* Filters */}
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter gallery">
-        {filters.map((f) => (
-          <button
-            key={f}
-            type="button"
-            role="tab"
-            aria-selected={filter === f}
-            onClick={() => setFilter(f)}
-            className={cn(
-              "min-h-[44px] rounded-full border px-5 text-[15px] font-medium transition-colors",
-              filter === f
-                ? "border-sky bg-sky text-white"
-                : "border-ink/15 text-ink/75 hover:border-ink/30",
-            )}
-          >
-            {f}
-          </button>
-        ))}
-      </div>
-
       {/* Grid */}
-      <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-        {visible.map((item) => (
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {galleryItems.map((item) => (
           <button
             key={item.id}
             type="button"
@@ -76,22 +40,16 @@ export function GalleryGrid() {
           >
             <Placeholder
               label={item.label}
-              alt={`${item.label} — ${item.category} window cleaning project by WinPro, photo coming soon`}
+              alt={item.label}
               ratio="square"
               src={item.image}
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
-            <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-ink/70">
-              {item.category}
-            </span>
             <span className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/10" />
           </button>
         ))}
       </div>
 
-      {visible.length === 0 && (
-        <p className="mt-10 text-center text-ink/60">Nothing here yet — check back soon.</p>
-      )}
 
       {/* Lightbox */}
       {active && (
@@ -108,7 +66,7 @@ export function GalleryGrid() {
           >
             <Placeholder
               label={active.label}
-              alt={`${active.label} — ${active.category} window cleaning project by WinPro, photo coming soon`}
+              alt={active.label}
               ratio="wide"
               className="rounded-2xl"
               src={active.image}
@@ -116,7 +74,7 @@ export function GalleryGrid() {
             />
             <div className="mt-3 flex items-center justify-between text-white">
               <p className="text-sm font-medium">
-                {active.label} · {active.category}
+                {active.label}
               </p>
               <button
                 type="button"

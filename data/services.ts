@@ -26,6 +26,8 @@ export type Service = {
   // Final photo for this service. Drop a file in /public (e.g. "/photos/exterior.jpg")
   // and set it here — the Placeholder swaps to next/image with zero layout shift.
   image?: string;
+  // Additional images for the service page gallery section.
+  images?: string[];
   seasonal?: boolean; // Christmas Lights gets a "Seasonal" tag (§5.1 #3)
   // Extra framing for seasonal services (Christmas Lights install/takedown, §5.2).
   seasonalCallout?: {
@@ -47,6 +49,19 @@ export const services: Service[] = [
       "Streak-free glass, frames, and sills — washed by hand and finished spotless.",
     placeholderLabel: "Exterior cleaning — photo TK",
     image: "/photos/outdoor-1.jpg",
+    images: [
+      "/photos/outdoor-2.jpg",
+      "/photos/outdoor-3.jpg",
+      "/photos/exterior-1.jpg",
+      "/photos/exterior-2.jpg",
+      "/photos/exterior-3.jpg",
+      "/photos/exterior-4.jpg",
+      "/photos/exterior-pool.jpg",
+      "/photos/exterior-water-pole.jpg",
+      "/photos/outdoor-hard-reach.jpg",
+      "/photos/action-water-pole.png",
+      "/photos/action-employees.jpg",
+    ],
     included: [
       {
         title: "Glass washed by hand",
@@ -95,6 +110,10 @@ export const services: Service[] = [
       "Clear glass from the inside out, with your floors and furniture protected the whole time.",
     placeholderLabel: "Interior cleaning — photo TK",
     image: "/photos/indoor-1.jpg",
+    images: [
+      "/photos/indoor-2.jpg",
+      "/photos/indoor-3.jpg",
+    ],
     included: [
       {
         title: "Inside glass detailed",

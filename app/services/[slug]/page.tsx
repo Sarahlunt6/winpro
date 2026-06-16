@@ -144,6 +144,33 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </Container>
       </section>
 
+      {/* Photo gallery (if service has multiple images) */}
+      {service.images && service.images.length > 0 && (
+        <section className="bg-cloud py-16 lg:py-24">
+          <Container>
+            <SectionHeading
+              align="center"
+              eyebrow="Our work"
+              title="See our results"
+              className="mb-10"
+            />
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+              {service.images.map((img, idx) => (
+                <Placeholder
+                  key={idx}
+                  label={`${service.name} project ${idx + 1}`}
+                  alt={`${service.name} by WinPro — project photo ${idx + 1}`}
+                  ratio="square"
+                  className="rounded-2xl"
+                  src={img}
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
       <HowItWorks />
 
       {/* FAQ */}
