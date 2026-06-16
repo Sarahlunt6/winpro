@@ -64,10 +64,10 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-all duration-300",
+        "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-ink/10 bg-white/95 backdrop-blur-md"
-          : "border-white/20 bg-black/20 backdrop-blur-sm"
+          ? "border-b border-ink/10 bg-white/95 backdrop-blur-md"
+          : "bg-transparent"
       )}
     >
       <Container>
@@ -178,7 +178,12 @@ export function Header() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
-              className="flex h-11 w-11 items-center justify-center rounded-full text-ink hover:bg-cloud"
+              className={cn(
+                "flex h-11 w-11 items-center justify-center rounded-full transition-colors",
+                scrolled
+                  ? "text-ink hover:bg-cloud"
+                  : "text-white hover:bg-white/10"
+              )}
             >
               {mobileOpen ? <CloseIcon /> : <MenuIcon />}
             </button>

@@ -34,9 +34,14 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         "fade-up": "fade-up 300ms ease-out both",
+        "fade-in": "fade-in 400ms ease-out both",
       },
       maxWidth: {
         container: "80rem", // 1280px content cap

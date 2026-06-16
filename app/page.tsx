@@ -2,7 +2,7 @@ import { Hero } from "@/components/home/Hero";
 import { BeforeAfterSection } from "@/components/home/BeforeAfterSection";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { PlansTeaser } from "@/components/home/PlansTeaser";
-import { FeaturedTestimonial } from "@/components/home/FeaturedTestimonial";
+import { ReviewsCarousel } from "@/components/home/ReviewsCarousel";
 import { InstagramFeed } from "@/components/InstagramFeed";
 import { QuoteSection } from "@/components/quote/QuoteSection";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
@@ -15,7 +15,7 @@ export default function Home() {
       <ServicesGrid /> {/* 2 */}
       <PlansTeaser /> {/* 3 */}
       <BeforeAfterSection /> {/* 4 — signature element */}
-      <FeaturedTestimonial /> {/* 5 */}
+      <ReviewsCarousel /> {/* 5 — Google reviews */}
       <InstagramFeed /> {/* 6 — stub (§7) */}
       <QuoteSection /> {/* embedded quote form (§6) */}
       <FinalCtaBand /> {/* 7 + trust strip (8) */}
