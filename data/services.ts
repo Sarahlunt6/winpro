@@ -50,7 +50,7 @@ export const services: Service[] = [
     valueProp:
       "Streak-free glass, frames, and sills — washed by hand and finished spotless.",
     placeholderLabel: "Exterior cleaning — photo TK",
-    image: "/photos/outdoor-1.jpg",
+    image: "/photos/exterior-pool.jpg",
     sectionImage: "/photos/action-water-pole.png",
     images: [
       "/photos/outdoor-2.jpg",
@@ -112,8 +112,8 @@ export const services: Service[] = [
     valueProp:
       "Clear glass from the inside out, with your floors and furniture protected the whole time.",
     placeholderLabel: "Interior cleaning — photo TK",
-    image: "/photos/indoor-1.jpg",
-    sectionImage: "/photos/indoor-2.jpg",
+    image: "/photos/indoor-2.jpg",
+    sectionImage: "/photos/indoor-1.jpg",
     images: [
       "/photos/indoor-3.jpg",
     ],
@@ -154,7 +154,7 @@ export const services: Service[] = [
     valueProp:
       "Window screens removed, deep-cleaned, and reset so more light and air gets in.",
     placeholderLabel: "Screen cleaning — photo TK",
-    image: "/photos/action-water-pole.png",
+    image: "/photos/outdoor-hard-reach.jpg",
     sectionImage: "/photos/action-employees.jpg",
     included: [
       {
@@ -193,7 +193,7 @@ export const services: Service[] = [
     valueProp:
       "A hydrophobic coating that helps glass shed water and resist hard-water spots longer.",
     placeholderLabel: "Protective coating — photo TK",
-    image: "/photos/exterior-water-pole.jpg",
+    image: "/photos/exterior-1.jpg",
     sectionImage: "/photos/exterior-pool.jpg",
     included: [
       {

@@ -14,8 +14,19 @@ import { cn } from "@/lib/cn";
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const servicesRef = useRef<HTMLLIElement>(null);
   const pathname = usePathname();
+
+  // Track scroll position for header opacity transition.
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 50);
+    }
+    onScroll(); // Set initial state
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Close the desktop dropdown on outside click / Escape.
   useEffect(() => {
@@ -51,7 +62,14 @@ export function Header() {
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-white/70 backdrop-blur-md">
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-b backdrop-blur-md transition-colors duration-300",
+        scrolled
+          ? "border-ink/10 bg-white/90"
+          : "border-transparent bg-white/40"
+      )}
+    >
       <Container>
         <div className="flex h-16 items-center justify-between gap-4 lg:h-20">
           <Link

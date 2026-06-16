@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <>
       <Hero /> {/* 1 */}
-      <BeforeAfterSection /> {/* 2 — signature element */}
-      <ServicesGrid /> {/* 3 */}
+      <ServicesGrid /> {/* 2 */}
+      <BeforeAfterSection /> {/* 3 — signature element */}
       <PlansTeaser /> {/* 4 */}
       <FeaturedTestimonial /> {/* 5 */}
       <InstagramFeed /> {/* 6 — stub (§7) */}
