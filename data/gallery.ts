@@ -30,4 +30,7 @@ export const galleryItems: GalleryItem[] = [
   { id: "g10", label: "Interior window detail", category: "Residential", image: "/photos/indoor-2.jpg" },
   { id: "g11", label: "Team in action", category: "Commercial", image: "/photos/action-employees.jpg" },
   { id: "g12", label: "Exterior detail work", category: "Before & After", image: "/photos/exterior-2.jpg" },
+  { id: "g13", label: "Interior cleaning", category: "Residential", image: "/photos/indoor-3.jpg" },
+  { id: "g14", label: "Exterior window service", category: "Before & After", image: "/photos/exterior-3.jpg" },
+  { id: "g15", label: "Residential exterior", category: "Residential", image: "/photos/exterior-4.jpg" },
 ];
