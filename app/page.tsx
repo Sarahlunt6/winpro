@@ -13,8 +13,8 @@ export default function Home() {
     <>
       <Hero /> {/* 1 */}
       <ServicesGrid /> {/* 2 */}
-      <BeforeAfterSection /> {/* 3 — signature element */}
-      <PlansTeaser /> {/* 4 */}
+      <PlansTeaser /> {/* 3 */}
+      <BeforeAfterSection /> {/* 4 — signature element */}
       <FeaturedTestimonial /> {/* 5 */}
       <InstagramFeed /> {/* 6 — stub (§7) */}
       <QuoteSection /> {/* embedded quote form (§6) */}
