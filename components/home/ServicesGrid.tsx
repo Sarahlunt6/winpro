@@ -21,9 +21,9 @@ export function ServicesGrid() {
           </Button>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 flex flex-wrap justify-center gap-5">
           {services.map((service, i) => (
-            <Reveal key={service.slug} delay={i * 60}>
+            <Reveal key={service.slug} delay={i * 60} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">
               <ServiceCard service={service} />
             </Reveal>
           ))}

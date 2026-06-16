@@ -3,8 +3,9 @@ import { Placeholder } from "@/components/ui/Placeholder";
 import type { Service } from "@/data/services";
 
 /**
- * Service photo card (§5.1 #3): 4:5 image with the service name overlaid, hover lift,
- * links to its service page. Christmas Lights gets a subtle "Seasonal" tag.
+ * Service photo card (§5.1 #3): 4:5 image with the service name centered,
+ * on hover reveals description and learn more arrow. Links to service page.
+ * Christmas Lights gets a subtle "Seasonal" tag.
  */
 export function ServiceCard({ service }: { service: Service }) {
   return (
@@ -21,8 +22,8 @@ export function ServiceCard({ service }: { service: Service }) {
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
 
-      {/* legibility overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
+      {/* legibility overlay - darker on hover */}
+      <div className="absolute inset-0 bg-ink/40 transition-colors duration-300 group-hover:bg-ink/60" />
 
       {service.seasonal && (
         <span className="absolute right-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-ink">
@@ -30,10 +31,18 @@ export function ServiceCard({ service }: { service: Service }) {
         </span>
       )}
 
-      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+      {/* Default state: title centered */}
+      <div className="absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-300 group-hover:opacity-0">
+        <h3 className="text-center font-display text-xl font-bold text-white drop-shadow-lg sm:text-2xl">
+          {service.name}
+        </h3>
+      </div>
+
+      {/* Hover state: title + description + arrow at bottom */}
+      <div className="absolute inset-x-0 bottom-0 translate-y-4 p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:p-5">
         <h3 className="font-display text-lg font-bold text-white">{service.name}</h3>
-        <p className="mt-1 line-clamp-2 text-sm text-white/80">{service.valueProp}</p>
-        <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-sky-light">
+        <p className="mt-1 line-clamp-2 text-sm text-white/90">{service.valueProp}</p>
+        <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-sky-light">
           Learn more
           <ArrowRight />
         </span>
