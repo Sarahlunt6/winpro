@@ -13,7 +13,7 @@ export function Footer() {
     "flex min-h-[44px] items-center text-[15px] transition-colors hover:text-white";
 
   return (
-    <footer className="bg-ink text-white/70">
+    <footer className="border-t border-white/10 bg-[#0d1520] text-white/70">
       <Container className="py-14 lg:py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* Brand + social */}

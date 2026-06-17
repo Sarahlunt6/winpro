@@ -105,23 +105,40 @@ export default function AboutPage() {
       </section>
 
       {/* Areas served */}
-      <section className="bg-cloud py-16 lg:py-24">
+      <section className="bg-white py-16 lg:py-24">
         <Container>
-          <SectionHeading
-            eyebrow="Where we work"
-            title="Proudly serving Southern Utah"
-            description="If you're nearby and don't see your town, reach out — chances are we cover you."
-          />
-          <ul className="mt-8 flex flex-wrap gap-3">
-            {areasServed.map((city) => (
-              <li
-                key={city}
-                className="rounded-full border border-ink/10 bg-white px-5 py-2.5 text-[15px] font-medium text-ink/80"
-              >
-                {city}
-              </li>
-            ))}
-          </ul>
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14">
+            <div>
+              <SectionHeading
+                eyebrow="Where we work"
+                title="Proudly serving Southern Utah"
+                description="If you're nearby and don't see your town, reach out — chances are we cover you."
+              />
+              <ul className="mt-8 flex flex-wrap gap-3">
+                {areasServed.map((city) => (
+                  <li
+                    key={city}
+                    className="rounded-full border border-ink/10 bg-cloud px-5 py-2.5 text-[15px] font-medium text-ink/80"
+                  >
+                    {city}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-ink/10">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203771.4395285106!2d-113.74089565!3d37.0965278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ca44d39857c5b1%3A0x6f1be5c9d19c3c1d!2sSt.%20George%2C%20UT!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="WinPro service area map - St. George & Southern Utah"
+                className="grayscale"
+              />
+            </div>
+          </div>
         </Container>
       </section>
 
