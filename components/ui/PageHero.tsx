@@ -11,7 +11,7 @@ export function PageHero({
   description?: string;
 }) {
   return (
-    <section className="border-b border-ink/10 bg-cloud py-14 lg:py-20">
+    <section className="border-b border-ink/10 bg-cloud pb-14 pt-28 lg:pb-20 lg:pt-36">
       <Container>
         {eyebrow && (
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-sky">

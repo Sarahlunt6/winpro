@@ -12,16 +12,16 @@ export type Review = {
 export const reviews: Review[] = [
   {
     id: 1,
-    name: "Mandy L.",
+    name: "Kinsey R.",
     quote:
-      "These guys are the best! They did so much — and more than I expected! I haven't seen my windows look so good since they were new! We will have them back again and again for our windows!",
+      "This is the best window cleaning company ever!! I cannot recommend WinPro enough. My windows are sparkling clean and they go the extra mile to wipe down my windowsills and blinds. You will not regret hiring this team to clean your windows.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Kinsey R.",
+    name: "Mandy L.",
     quote:
-      "This is the best window cleaning company ever!! I cannot recommend WinPro enough. My windows are sparkling clean and they go the extra mile to wipe down my windowsills and blinds. You will not regret hiring this team to clean your windows.",
+      "These guys are the best! They did so much — and more than I expected! I haven't seen my windows look so good since they were new! We will have them back again and again for our windows!",
     rating: 5,
   },
   {

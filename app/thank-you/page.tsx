@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 // Post-submission confirmation (§5 sitemap, §6).
 export default function ThankYouPage() {
   return (
-    <section className="bg-cloud py-20 lg:py-28">
+    <section className="bg-cloud pb-20 pt-32 lg:pb-28 lg:pt-40">
       <Container>
         <div className="mx-auto max-w-xl text-center">
           <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sky-light text-sky">
