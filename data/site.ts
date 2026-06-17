@@ -49,7 +49,7 @@ export const primaryNav: NavItem[] = [
 
 // Trust strip — shown once, in the CTA band only (§5.1 #8).
 export const trustPoints = [
-  "Licensed & Insured",
+  "Licensed",
   "Eco-Friendly",
   "Southern Utah Local",
 ] as const;

@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { Button } from "@/components/ui/Button";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/data/services";
 
@@ -10,16 +9,12 @@ export function ServicesGrid() {
   return (
     <section className="bg-cloud py-16 lg:py-24">
       <Container>
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <SectionHeading
-            eyebrow="What we do"
-            title="Everything your glass needs, one local crew"
-            description="Five services, inside and out — pick what you need or bundle them on a plan."
-          />
-          <Button href="/services" variant="ghost" className="hidden shrink-0 sm:inline-flex">
-            All services
-          </Button>
-        </div>
+        <SectionHeading
+          align="center"
+          eyebrow="What we do"
+          title="Everything your glass needs, one local crew"
+          description="Five services, inside and out — pick what you need or bundle them on a plan."
+        />
 
         {/* Bento grid: 2 large cards (50% each) on top, 3 smaller (33% each) below */}
         <div className="mt-10 grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-6">

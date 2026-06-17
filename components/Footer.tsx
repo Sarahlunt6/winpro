@@ -20,7 +20,7 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <LogoIcon className="h-14 w-14" />
             <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-white/60">
-              {site.tagline}. Licensed, insured, and local.
+              {site.tagline}. Licensed and local.
             </p>
             <a
               href={site.instagram.url}
