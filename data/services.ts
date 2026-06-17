@@ -154,7 +154,7 @@ export const services: Service[] = [
     valueProp:
       "Window screens removed, deep-cleaned, and reset so more light and air gets in.",
     placeholderLabel: "Screen cleaning — photo TK",
-    image: "/photos/outdoor-hard-reach.jpg",
+    image: "/photos/outdoor-2.jpg",
     sectionImage: "/photos/action-employees.jpg",
     included: [
       {

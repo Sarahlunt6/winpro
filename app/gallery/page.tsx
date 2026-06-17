@@ -2,7 +2,9 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { GalleryGrid } from "@/components/gallery/GalleryGrid";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
+import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
+import { imageGallerySchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = buildMetadata({
   title: "Project Gallery",
@@ -15,6 +17,13 @@ export const metadata = buildMetadata({
 export default function GalleryPage() {
   return (
     <>
+      <JsonLd data={imageGallerySchema()} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Gallery", path: "/gallery" },
+        ])}
+      />
       <PageHero
         eyebrow="Our work"
         title="See the results for yourself"

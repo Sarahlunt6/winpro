@@ -3,7 +3,9 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
+import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
+import { webPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { areasServed } from "@/data/site";
 
 export const metadata = buildMetadata({
@@ -32,6 +34,20 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={webPageSchema({
+          name: "About WinPro Window Cleaning",
+          description:
+            "Locally owned window cleaning in St. George & Southern Utah, started in 2025.",
+          path: "/about",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
       <PageHero
         eyebrow="About us"
         title="Small-town window cleaners who actually show up"

@@ -2,8 +2,11 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { ReviewsPageCarousel } from "@/components/ReviewsPageCarousel";
 import { Button } from "@/components/ui/Button";
+import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
+import { reviewsSchema, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/data/site";
+import { reviews } from "@/data/reviews";
 
 export const metadata = buildMetadata({
   title: "Reviews",
@@ -15,6 +18,13 @@ export const metadata = buildMetadata({
 export default function ReviewsPage() {
   return (
     <>
+      <JsonLd data={reviewsSchema(reviews)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Reviews", path: "/reviews" },
+        ])}
+      />
       <PageHero
         eyebrow="What our customers say"
         title="5-star reviews from St. George homeowners"

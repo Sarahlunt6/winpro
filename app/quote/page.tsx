@@ -1,7 +1,9 @@
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { QuoteForm } from "@/components/quote/QuoteForm";
+import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
+import { contactPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { planSlugToInterest } from "@/lib/quote";
 import { getService } from "@/data/services";
 
@@ -26,6 +28,13 @@ export default function QuotePage({
 
   return (
     <>
+      <JsonLd data={contactPageSchema()} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Get a Quote", path: "/quote" },
+        ])}
+      />
       <PageHero
         eyebrow="Free quote"
         title="Tell us about your windows"

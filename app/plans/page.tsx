@@ -2,7 +2,9 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { PlanCard } from "@/components/PlanCard";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
+import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
+import { webPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { plans } from "@/data/plans";
 
 export const metadata = buildMetadata({
@@ -16,6 +18,20 @@ export const metadata = buildMetadata({
 export default function PlansPage() {
   return (
     <>
+      <JsonLd
+        data={webPageSchema({
+          name: "Maintenance Plans",
+          description:
+            "Monthly, quarterly, and bi-annual window cleaning plans for St. George homes & businesses.",
+          path: "/plans",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Plans", path: "/plans" },
+        ])}
+      />
       <PageHero
         eyebrow="Maintenance plans"
         title="Pick a rhythm and keep your windows clear"

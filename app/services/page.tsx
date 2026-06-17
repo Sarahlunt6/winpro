@@ -1,7 +1,9 @@
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
+import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
+import { webPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { services } from "@/data/services";
 
 export const metadata = buildMetadata({
@@ -15,6 +17,20 @@ export const metadata = buildMetadata({
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={webPageSchema({
+          name: "Window Cleaning Services",
+          description:
+            "Exterior & interior window cleaning, screens, protective coating, and Christmas lights for St. George & Southern Utah.",
+          path: "/services",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ])}
+      />
       <PageHero
         eyebrow="What we do"
         title="Window cleaning services for St. George"

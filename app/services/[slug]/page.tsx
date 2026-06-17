@@ -9,7 +9,7 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
 import { JsonLd } from "@/components/JsonLd";
-import { serviceSchema, faqSchema } from "@/lib/schema";
+import { serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { OG_IMAGE } from "@/lib/seo";
 import { services, getService } from "@/data/services";
 
@@ -51,6 +51,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
     <>
       <JsonLd data={serviceSchema(service)} />
       <JsonLd data={faqSchema(service.faqs)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.name, path: `/services/${service.slug}` },
+        ])}
+      />
 
       {/* Hero: service name + value prop over a photo placeholder */}
       <section className="relative overflow-hidden">
