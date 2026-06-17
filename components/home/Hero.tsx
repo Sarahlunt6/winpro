@@ -15,15 +15,15 @@ export function Hero() {
       {/* glass overlay for text legibility over the video (§4) */}
       <div className="absolute inset-0 -z-10 bg-glass" />
 
-      <Container className="flex min-h-[78vh] flex-col justify-center py-20 sm:min-h-[72vh] lg:py-28">
-        <div className="max-w-2xl">
+      <Container className="flex min-h-[85vh] flex-col justify-center py-24 sm:min-h-[90vh] lg:py-32">
+        <div className="max-w-3xl">
           <RatingPill />
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 text-balance font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
             Dirty windows? Consider them handled.
           </h1>
 
-          <p className="mt-5 max-w-xl text-lg text-white/85 sm:text-xl">
+          <p className="mt-6 max-w-xl text-xl text-white/85 sm:text-2xl">
             Streak-free window cleaning for St. George and Southern Utah. Book a
             free quote and get back your view.
           </p>
