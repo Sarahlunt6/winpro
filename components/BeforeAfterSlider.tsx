@@ -11,6 +11,8 @@ type SlideContent = {
   tone: "dirty" | "clean";
   /** Optional image path. When provided, renders next/image instead of placeholder. */
   image?: string;
+  /** Optional CSS object-position to align images (e.g., "center", "left center", "60% 50%"). */
+  objectPosition?: string;
 };
 
 type BeforeAfterSliderProps = {
@@ -155,6 +157,7 @@ function SlideFill({
           alt={content.label}
           fill
           className="object-cover"
+          style={content.objectPosition ? { objectPosition: content.objectPosition } : undefined}
           sizes="(max-width: 768px) 100vw, 80vw"
         />
         <span

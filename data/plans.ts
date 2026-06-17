@@ -10,6 +10,8 @@ export type Plan = {
   benefits: string[];
   // Optional — withheld for v1. Flip on later without touching the layout.
   price?: string;
+  // Discount off one-time pricing (e.g., "$100 off").
+  discount?: string;
   // Quarterly is the typical sweet spot for Southern Utah homes.
   featured?: boolean;
 };
@@ -27,6 +29,7 @@ export const plans: Plan[] = [
       "Best per-visit rate of any plan",
       "Consistent crew that knows your property",
     ],
+    discount: "$100 off",
   },
   {
     slug: "quarterly",
@@ -40,6 +43,7 @@ export const plans: Plan[] = [
       "Discounted plan-member rate",
       "We track your visits so you never have to",
     ],
+    discount: "$75 off",
     featured: true,
   },
   {
@@ -54,6 +58,7 @@ export const plans: Plan[] = [
       "Easy to upgrade if you want more visits",
       "A standing reminder so it never slips",
     ],
+    discount: "$50 off",
   },
 ];
 

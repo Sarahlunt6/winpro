@@ -16,8 +16,8 @@ export function BeforeAfterSection() {
         />
         <Reveal className="mt-10">
           <BeforeAfterSlider
-            before={{ label: "Dirty window with hard-water spotting", tone: "dirty", image: "/photos/before-dirty-window.png" }}
-            after={{ label: "Clean streak-free glass", tone: "clean", image: "/photos/after-clean-window.png" }}
+            before={{ label: "Dirty window with hard-water spotting", tone: "dirty", image: "/photos/before-dirty-window.png", objectPosition: "40% center" }}
+            after={{ label: "Clean streak-free glass", tone: "clean", image: "/photos/after-clean-window.png", objectPosition: "60% center" }}
           />
         </Reveal>
       </Container>
