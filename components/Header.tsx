@@ -69,16 +69,17 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 top-0 z-50 transition-all duration-300 backdrop-blur-sm",
+        "fixed left-0 right-0 top-0 z-50 backdrop-blur-md transition-all duration-300",
         useDarkText
-          ? "border-b border-ink/10 bg-white/95 backdrop-blur-md"
-          : "bg-black/15"
+          ? "border-b border-ink/10 bg-white/80"
+          : "bg-black/20"
       )}
     >
       <Container>
         <div className="flex h-16 items-center justify-between gap-4 lg:h-20">
           <Link
             href="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex shrink-0 items-center"
             aria-label="WinPro — home"
           >
