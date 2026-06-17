@@ -13,22 +13,8 @@ import { cn } from "@/lib/cn";
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const servicesRef = useRef<HTMLLIElement>(null);
   const pathname = usePathname();
-
-  // Always use dark text now that we have a white background
-  const useDarkText = true;
-
-  // Track scroll position for header opacity transition.
-  useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 50);
-    }
-    onScroll(); // Set initial state
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Close the desktop dropdown on outside click / Escape.
   useEffect(() => {
@@ -66,10 +52,7 @@ export function Header() {
   return (
     <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 lg:px-6 lg:pt-5">
       <div
-        className={cn(
-          "mx-auto max-w-7xl rounded-2xl bg-white/80 shadow-lg shadow-ink/5 backdrop-blur-md transition-all duration-300",
-          scrolled && "bg-white/90"
-        )}
+        className="mx-auto max-w-7xl rounded-2xl bg-white shadow-lg shadow-ink/5"
       >
         <div className="flex h-14 items-center justify-between gap-4 px-4 lg:h-16 lg:px-6">
           <Link
@@ -92,12 +75,7 @@ export function Header() {
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
                       onClick={() => setServicesOpen((v) => !v)}
-                      className={cn(
-                        "flex min-h-[44px] items-center gap-1 rounded-full px-4 text-lg font-medium transition-colors",
-                        useDarkText
-                          ? "text-ink/80 hover:bg-cloud hover:text-ink"
-                          : "text-white/90 hover:bg-white/10 hover:text-white"
-                      )}
+                      className="flex min-h-[44px] items-center gap-1 rounded-full px-4 text-lg font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
                     >
                       {item.label}
                       <ChevronDown
@@ -137,12 +115,7 @@ export function Header() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className={cn(
-                        "flex min-h-[44px] items-center rounded-full px-4 text-lg font-medium transition-colors",
-                        useDarkText
-                          ? "text-ink/80 hover:bg-cloud hover:text-ink"
-                          : "text-white/90 hover:bg-white/10 hover:text-white"
-                      )}
+                      className="flex min-h-[44px] items-center rounded-full px-4 text-lg font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
                     >
                       {item.label}
                     </Link>
@@ -155,12 +128,7 @@ export function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href={site.phoneHref}
-              className={cn(
-                "flex min-h-[44px] items-center text-base font-medium transition-colors",
-                useDarkText
-                  ? "text-ink/80 hover:text-ink"
-                  : "text-white/90 hover:text-white"
-              )}
+              className="flex min-h-[44px] items-center text-base font-medium text-ink/80 transition-colors hover:text-ink"
             >
               {site.phone}
             </a>
@@ -179,12 +147,7 @@ export function Header() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
-              className={cn(
-                "flex h-11 w-11 items-center justify-center rounded-full transition-colors",
-                useDarkText
-                  ? "text-ink hover:bg-cloud"
-                  : "text-white hover:bg-white/10"
-              )}
+              className="flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-cloud"
             >
               {mobileOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
