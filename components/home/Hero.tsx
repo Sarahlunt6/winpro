@@ -19,11 +19,11 @@ export function Hero() {
         <div className="max-w-3xl">
           <RatingPill />
 
-          <h1 className="mt-6 text-balance font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-balance font-display text-5xl font-black leading-[1.05] tracking-tight text-white sm:text-7xl lg:text-8xl">
             Dirty windows? Consider them handled.
           </h1>
 
-          <p className="mt-6 max-w-xl text-xl text-white/85 sm:text-2xl">
+          <p className="mt-6 max-w-xl text-xl text-white/85 sm:text-2xl lg:text-3xl">
             Streak-free window cleaning for St. George and Southern Utah. Book a
             free quote and get back your view.
           </p>

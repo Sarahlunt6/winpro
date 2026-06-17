@@ -18,11 +18,11 @@ export function PageHero({
             {eyebrow}
           </p>
         )}
-        <h1 className="max-w-3xl text-balance text-4xl font-extrabold leading-[1.05] sm:text-5xl">
+        <h1 className="max-w-3xl text-balance font-display text-4xl font-black leading-[1.05] sm:text-5xl lg:text-6xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-5 max-w-2xl text-lg text-ink/70">{description}</p>
+          <p className="mt-5 max-w-2xl text-lg text-ink/70 sm:text-xl">{description}</p>
         )}
       </Container>
     </section>

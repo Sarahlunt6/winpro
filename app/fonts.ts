@@ -1,10 +1,10 @@
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 
-// Display: a confident grotesque with character — weights 600–800, tight tracking (§4).
-export const display = Bricolage_Grotesque({
+// Display: rounded, friendly sans-serif with bold weights (§4).
+export const display = Poppins({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["600", "700", "800"],
+  weight: ["600", "700", "800", "900"],
   display: "swap",
 });
 
