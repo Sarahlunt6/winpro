@@ -83,7 +83,7 @@ export function Header() {
             className="flex shrink-0 items-center"
             aria-label="WinPro — home"
           >
-            <Logo priority className="h-7 w-auto sm:h-8" />
+            <Logo priority className="h-8 w-auto sm:h-10" />
           </Link>
 
           {/* Desktop nav */}
@@ -98,7 +98,7 @@ export function Header() {
                       aria-haspopup="true"
                       onClick={() => setServicesOpen((v) => !v)}
                       className={cn(
-                        "flex min-h-[44px] items-center gap-1 rounded-full px-4 text-base font-medium transition-colors",
+                        "flex min-h-[44px] items-center gap-1 rounded-full px-4 text-lg font-medium transition-colors",
                         useDarkText
                           ? "text-ink/80 hover:bg-cloud hover:text-ink"
                           : "text-white/90 hover:bg-white/10 hover:text-white"
@@ -143,7 +143,7 @@ export function Header() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "flex min-h-[44px] items-center rounded-full px-4 text-base font-medium transition-colors",
+                        "flex min-h-[44px] items-center rounded-full px-4 text-lg font-medium transition-colors",
                         useDarkText
                           ? "text-ink/80 hover:bg-cloud hover:text-ink"
                           : "text-white/90 hover:bg-white/10 hover:text-white"
