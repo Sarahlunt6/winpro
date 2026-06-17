@@ -12,7 +12,7 @@ export function HowItWorks() {
           eyebrow="How it works"
           title="Three steps to spotless"
         />
-        <ol className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <ol className="mt-10 grid grid-cols-1 justify-center gap-6 sm:grid-cols-3">
           {howItWorks.map((s) => (
             <li
               key={s.step}

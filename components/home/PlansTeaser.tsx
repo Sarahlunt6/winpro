@@ -15,7 +15,7 @@ export function PlansTeaser() {
           title="Keep your windows clear all year"
           description="Set it once and forget it. Plan members get priority scheduling and a better rate — pick the rhythm that fits your home."
         />
-        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 justify-center gap-5 md:grid-cols-3">
           {plans.map((plan, i) => (
             <Reveal key={plan.slug} delay={i * 60} className="h-full">
               <PlanCard plan={plan} />

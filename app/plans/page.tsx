@@ -24,7 +24,7 @@ export default function PlansPage() {
       <section className="py-14 lg:py-20">
         <Container>
           <h2 className="sr-only">Our maintenance plans</h2>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="grid grid-cols-1 justify-center gap-5 md:grid-cols-3">
             {plans.map((plan) => (
               <PlanCard key={plan.slug} plan={plan} />
             ))}

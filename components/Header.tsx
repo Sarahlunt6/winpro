@@ -18,6 +18,11 @@ export function Header() {
   const servicesRef = useRef<HTMLLIElement>(null);
   const pathname = usePathname();
 
+  // Only show transparent header with light text on the homepage (over dark hero video)
+  const isHomepage = pathname === "/";
+  // Use dark text when scrolled OR when not on homepage
+  const useDarkText = scrolled || !isHomepage;
+
   // Track scroll position for header opacity transition.
   useEffect(() => {
     function onScroll() {
@@ -65,7 +70,7 @@ export function Header() {
     <header
       className={cn(
         "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
-        scrolled
+        useDarkText
           ? "border-b border-ink/10 bg-white/95 backdrop-blur-md"
           : "bg-transparent"
       )}
@@ -93,7 +98,7 @@ export function Header() {
                       onClick={() => setServicesOpen((v) => !v)}
                       className={cn(
                         "flex min-h-[44px] items-center gap-1 rounded-full px-4 text-base font-medium transition-colors",
-                        scrolled
+                        useDarkText
                           ? "text-ink/80 hover:bg-cloud hover:text-ink"
                           : "text-white/90 hover:bg-white/10 hover:text-white"
                       )}
@@ -138,7 +143,7 @@ export function Header() {
                       href={item.href}
                       className={cn(
                         "flex min-h-[44px] items-center rounded-full px-4 text-base font-medium transition-colors",
-                        scrolled
+                        useDarkText
                           ? "text-ink/80 hover:bg-cloud hover:text-ink"
                           : "text-white/90 hover:bg-white/10 hover:text-white"
                       )}
@@ -156,7 +161,7 @@ export function Header() {
               href={site.phoneHref}
               className={cn(
                 "flex min-h-[44px] items-center text-base font-medium transition-colors",
-                scrolled
+                useDarkText
                   ? "text-ink/80 hover:text-ink"
                   : "text-white/90 hover:text-white"
               )}
@@ -180,7 +185,7 @@ export function Header() {
               onClick={() => setMobileOpen((v) => !v)}
               className={cn(
                 "flex h-11 w-11 items-center justify-center rounded-full transition-colors",
-                scrolled
+                useDarkText
                   ? "text-ink hover:bg-cloud"
                   : "text-white hover:bg-white/10"
               )}

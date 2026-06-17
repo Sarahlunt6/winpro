@@ -113,7 +113,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       {/* 2-col: photo | what's included */}
       <section className="bg-white py-16 lg:py-24">
         <Container>
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className="grid grid-cols-1 items-center justify-center gap-10 lg:grid-cols-2 lg:gap-14">
             <Placeholder
               label={service.placeholderLabel}
               alt={`${service.name} by WinPro at a St. George home — project photo coming soon`}
@@ -154,7 +154,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               title="See our results"
               className="mb-10"
             />
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 justify-center gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {service.images.map((img, idx) => (
                 <Placeholder
                   key={idx}
@@ -196,7 +196,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             title="Other services you might need"
             description="Bundle services on one visit, or keep your glass clear year-round with a maintenance plan."
           />
-          <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid grid-cols-1 justify-center gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((s) => (
               <li key={s.slug}>
                 <Link

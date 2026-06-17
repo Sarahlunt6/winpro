@@ -68,7 +68,7 @@ export async function InstagramFeed() {
           </Button>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 justify-center gap-4 lg:grid-cols-4">
           {posts.length > 0
             ? posts.map((post, i) => <PostCard key={post.id ?? i} post={post} />)
             : // Not connected yet — show styled placeholders (build-out preview).

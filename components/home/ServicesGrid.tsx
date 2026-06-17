@@ -22,7 +22,7 @@ export function ServicesGrid() {
         </div>
 
         {/* Bento grid: 2 large cards (50% each) on top, 3 smaller (33% each) below */}
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-6">
           {/* First row: 2 large cards, each 50% (3 cols of 6) */}
           {services.slice(0, 2).map((service, i) => (
             <Reveal key={service.slug} delay={i * 60} className="sm:col-span-1 lg:col-span-3">

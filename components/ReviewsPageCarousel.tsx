@@ -70,7 +70,7 @@ export function ReviewsPageCarousel() {
       </div>
 
       {/* Reviews grid - 1 col on mobile, 3 on lg */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {visibleReviews.map((review) => (
           <ReviewCard key={review.id} review={review} />
         ))}

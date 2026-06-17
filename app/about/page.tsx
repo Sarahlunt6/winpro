@@ -41,7 +41,7 @@ export default function AboutPage() {
       {/* Story */}
       <section className="bg-white py-16 lg:py-24">
         <Container>
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className="grid grid-cols-1 items-center justify-center gap-10 lg:grid-cols-2 lg:gap-14">
             <Placeholder
               label="The WinPro crew"
               alt="The WinPro window cleaning crew in St. George"
@@ -77,7 +77,7 @@ export default function AboutPage() {
             eyebrow="What we stand for"
             title="Three things we never compromise on"
           />
-          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 justify-center gap-5 sm:grid-cols-3">
             {values.map((v) => (
               <div key={v.title} className="rounded-2xl border border-ink/10 bg-white p-6">
                 <h3 className="font-display text-xl font-bold text-ink">{v.title}</h3>
