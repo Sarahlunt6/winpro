@@ -161,7 +161,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               title="See our results"
               className="mb-10"
             />
-            <div className="grid grid-cols-2 justify-center gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="mx-auto grid max-w-5xl grid-cols-2 justify-center gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {service.images.map((img, idx) => (
                 <Placeholder
                   key={idx}

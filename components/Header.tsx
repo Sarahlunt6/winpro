@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { primaryNav, site } from "@/data/site";
@@ -67,16 +66,16 @@ export function Header() {
   }, [mobileOpen]);
 
   return (
-    <header
-      className={cn(
-        "fixed left-0 right-0 top-0 z-50 backdrop-blur-md transition-all duration-300",
-        useDarkText
-          ? "border-b border-ink/10 bg-white/80"
-          : "bg-black/20"
-      )}
-    >
-      <Container>
-        <div className="flex h-16 items-center justify-between gap-4 lg:h-20">
+    <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 lg:px-6 lg:pt-5">
+      <div
+        className={cn(
+          "mx-auto max-w-7xl rounded-2xl backdrop-blur-md transition-all duration-300",
+          useDarkText
+            ? "bg-white/90 shadow-lg shadow-ink/5"
+            : "bg-black/30"
+        )}
+      >
+        <div className="flex h-14 items-center justify-between gap-4 px-4 lg:h-16 lg:px-6">
           <Link
             href="/"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -195,12 +194,10 @@ export function Header() {
             </button>
           </div>
         </div>
-      </Container>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="border-t border-ink/10 bg-white lg:hidden">
-          <Container className="py-4">
+        {/* Mobile menu */}
+        {mobileOpen && (
+          <div className="border-t border-ink/10 px-4 py-4 lg:hidden">
             <nav aria-label="Mobile">
               <ul className="flex flex-col gap-1">
                 <li>
@@ -249,9 +246,9 @@ export function Header() {
                 Call {site.phone}
               </a>
             </div>
-          </Container>
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </header>
   );
 }
