@@ -17,10 +17,8 @@ export function Header() {
   const servicesRef = useRef<HTMLLIElement>(null);
   const pathname = usePathname();
 
-  // Only show transparent header with light text on the homepage (over dark hero video)
-  const isHomepage = pathname === "/";
-  // Use dark text when scrolled OR when not on homepage
-  const useDarkText = scrolled || !isHomepage;
+  // Always use dark text now that we have a white background
+  const useDarkText = true;
 
   // Track scroll position for header opacity transition.
   useEffect(() => {
@@ -69,10 +67,8 @@ export function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 lg:px-6 lg:pt-5">
       <div
         className={cn(
-          "mx-auto max-w-7xl rounded-2xl backdrop-blur-md transition-all duration-300",
-          useDarkText
-            ? "bg-white/90 shadow-lg shadow-ink/5"
-            : "bg-black/30"
+          "mx-auto max-w-7xl rounded-2xl bg-white/80 shadow-lg shadow-ink/5 backdrop-blur-md transition-all duration-300",
+          scrolled && "bg-white/90"
         )}
       >
         <div className="flex h-14 items-center justify-between gap-4 px-4 lg:h-16 lg:px-6">
