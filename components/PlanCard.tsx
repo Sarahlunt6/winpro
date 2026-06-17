@@ -31,14 +31,17 @@ export function PlanCard({ plan, compact = false }: { plan: Plan; compact?: bool
         <p className="mt-3 text-2xl font-bold text-ink">{plan.price}</p>
       )}
 
-      {/* Discount badge */}
+      {/* Discount - large and prominent */}
       {plan.discount && (
-        <p className="mt-3 inline-block rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
-          {plan.discount}
-        </p>
+        <div className="mt-4">
+          <p className="font-display text-4xl font-bold text-ink sm:text-5xl">
+            {plan.discount}
+          </p>
+          <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-ink/50">
+            per cleaning
+          </p>
+        </div>
       )}
-
-      <p className="mt-3 text-[15px] leading-relaxed text-ink/70">{plan.whoFor}</p>
 
       {!compact && (
         <ul className="mt-5 space-y-3 text-[15px] text-ink/80">
