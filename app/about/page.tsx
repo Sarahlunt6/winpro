@@ -127,7 +127,7 @@ export default function AboutPage() {
             </div>
             <div className="overflow-hidden rounded-2xl border border-ink/10">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203771.4395285106!2d-113.74089565!3d37.0965278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ca44d39857c5b1%3A0x6f1be5c9d19c3c1d!2sSt.%20George%2C%20UT!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d415000!2d-113.5!3d37.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
