@@ -94,7 +94,7 @@ export function BeforeAfterSlider({
     <div
       ref={containerRef}
       className={cn(
-        "relative w-full select-none overflow-hidden rounded-2xl ring-1 ring-ink/10",
+        "relative w-full touch-none select-none overflow-hidden rounded-2xl ring-1 ring-ink/10",
         ratioClassName,
         dragging ? "cursor-grabbing" : "cursor-grab",
         className,
