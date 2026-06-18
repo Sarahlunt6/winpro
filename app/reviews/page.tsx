@@ -11,7 +11,7 @@ import { reviews } from "@/data/reviews";
 export const metadata = buildMetadata({
   title: "Reviews",
   description:
-    "See what St. George homeowners say about WinPro window cleaning. 5-star Google reviews from happy customers throughout Southern Utah.",
+    "See what Southern Utah homeowners say about WinPro window cleaning. 5-star Google reviews from happy customers in St. George, Cedar City & beyond.",
   path: "/reviews",
 });
 
@@ -27,7 +27,7 @@ export default function ReviewsPage() {
       />
       <PageHero
         eyebrow="What our customers say"
-        title="5-star reviews from St. George homeowners"
+        title="5-star reviews from Southern Utah homeowners"
         description="We take pride in every job. Here's what our customers have to say about their experience with WinPro."
       />
       <section className="py-14 lg:py-20">

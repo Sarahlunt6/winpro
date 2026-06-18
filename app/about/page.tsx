@@ -11,7 +11,7 @@ import { areasServed } from "@/data/site";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "Locally owned window cleaning in St. George & Southern Utah, started in 2025 on honest work and a spotless finish. Meet the WinPro crew.",
+    "Locally owned window cleaning in St. George, Cedar City & Southern Utah, started in 2025 on honest work and a spotless finish. Meet the WinPro crew.",
   path: "/about",
 });
 
@@ -38,7 +38,7 @@ export default function AboutPage() {
         data={webPageSchema({
           name: "About WinPro Window Cleaning",
           description:
-            "Locally owned window cleaning in St. George & Southern Utah, started in 2025.",
+            "Locally owned window cleaning in St. George, Cedar City & Southern Utah, started in 2025.",
           path: "/about",
         })}
       />
@@ -134,7 +134,7 @@ export default function AboutPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="WinPro service area map - St. George & Southern Utah"
+                title="WinPro service area map - St. George, Cedar City & Southern Utah"
                 className="grayscale"
               />
             </div>

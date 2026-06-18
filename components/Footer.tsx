@@ -95,7 +95,7 @@ export function Footer() {
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>
-          <p>St. George &amp; Southern Utah</p>
+          <p>St. George, Cedar City &amp; all of Southern Utah</p>
         </div>
       </Container>
     </footer>

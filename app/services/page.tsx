@@ -9,7 +9,7 @@ import { services } from "@/data/services";
 export const metadata = buildMetadata({
   title: "Window Cleaning Services",
   description:
-    "Exterior & interior window cleaning, screens, protective coating, and Christmas lights for St. George & Southern Utah. See all WinPro services.",
+    "Exterior & interior window cleaning, screens, protective coating, and Christmas lights for St. George, Cedar City & Southern Utah. See all WinPro services.",
   path: "/services",
 });
 
@@ -21,7 +21,7 @@ export default function ServicesPage() {
         data={webPageSchema({
           name: "Window Cleaning Services",
           description:
-            "Exterior & interior window cleaning, screens, protective coating, and Christmas lights for St. George & Southern Utah.",
+            "Exterior & interior window cleaning, screens, protective coating, and Christmas lights for St. George, Cedar City & Southern Utah.",
           path: "/services",
         })}
       />

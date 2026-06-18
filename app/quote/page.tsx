@@ -10,7 +10,7 @@ import { getService } from "@/data/services";
 export const metadata = buildMetadata({
   title: "Get a Free Quote",
   description:
-    "Get a free, no-pressure window cleaning quote for St. George & Southern Utah. Five quick questions and we'll get you a price.",
+    "Get a free, no-pressure window cleaning quote for St. George, Cedar City & all of Southern Utah. Five quick questions and we'll get you a price.",
   path: "/quote",
 });
 

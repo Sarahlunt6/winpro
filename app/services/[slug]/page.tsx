@@ -24,7 +24,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   // Local SEO: "{service} · St. George" in the title, under 60 chars (§8).
   // Brand shortened to "WinPro" here so the local phrase fits the length budget.
   const title = `${service.name} · St. George, UT | WinPro`;
-  const description = `${service.valueProp} Serving St. George & Southern Utah — free quotes.`;
+  const description = `${service.valueProp} Serving St. George, Cedar City & Southern Utah — free quotes.`;
   return {
     title: { absolute: title },
     description,

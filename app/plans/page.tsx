@@ -10,7 +10,7 @@ import { plans } from "@/data/plans";
 export const metadata = buildMetadata({
   title: "Maintenance Plans",
   description:
-    "Monthly, quarterly, and bi-annual window cleaning plans for St. George homes & businesses. Priority scheduling and member rates.",
+    "Monthly, quarterly, and bi-annual window cleaning plans for St. George, Cedar City & Southern Utah homes. Priority scheduling and member rates.",
   path: "/plans",
 });
 

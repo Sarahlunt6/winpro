@@ -52,7 +52,7 @@ export function Header() {
   return (
     <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 lg:px-6 lg:pt-5">
       <div
-        className="mx-auto max-w-7xl rounded-2xl bg-white shadow-lg shadow-ink/5"
+        className="mx-auto max-w-7xl rounded-2xl border border-ink bg-white/10 backdrop-blur-sm"
       >
         <div className="flex h-14 items-center justify-between gap-4 px-4 lg:h-16 lg:px-6">
           <Link
@@ -156,7 +156,7 @@ export function Header() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-ink/10 px-4 py-4 lg:hidden">
+          <div className="border-t border-ink/20 bg-white px-4 py-4 lg:hidden rounded-b-2xl">
             <nav aria-label="Mobile">
               <ul className="flex flex-col gap-1">
                 <li>

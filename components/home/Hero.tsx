@@ -24,8 +24,8 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-xl text-white/85 sm:text-2xl lg:text-3xl">
-            Streak-free window cleaning for St. George and Southern Utah. Book a
-            free quote and get back your view.
+            Streak-free window cleaning for St. George, Cedar City, and all of
+            Southern Utah. Book a free quote and get back your view.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -34,7 +34,7 @@ export function Hero() {
             </Button>
             <a
               href={site.phoneHref}
-              className="inline-flex min-h-[52px] items-center justify-center rounded-full px-2 text-base font-medium text-white underline-offset-4 hover:underline"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-ink bg-white/10 px-5 text-base font-medium text-ink backdrop-blur-sm transition-colors hover:bg-white/20"
             >
               or call {site.phone}
             </a>
@@ -53,7 +53,7 @@ function RatingPill() {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-1.5 text-sm font-medium text-ink shadow-sm transition-colors hover:bg-white"
+      className="inline-flex items-center gap-2 rounded-full border border-ink bg-white/10 px-3.5 py-1.5 text-sm font-medium text-ink backdrop-blur-sm transition-colors hover:bg-white/20"
     >
       <Stars />
       <span>{label}</span>

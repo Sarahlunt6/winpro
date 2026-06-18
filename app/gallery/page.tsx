@@ -9,7 +9,7 @@ import { imageGallerySchema, breadcrumbSchema } from "@/lib/schema";
 export const metadata = buildMetadata({
   title: "Project Gallery",
   description:
-    "Before-and-after window cleaning results and recent projects across St. George & Southern Utah. See the WinPro difference.",
+    "Before-and-after window cleaning results and recent projects across St. George, Cedar City & Southern Utah. See the WinPro difference.",
   path: "/gallery",
 });
 

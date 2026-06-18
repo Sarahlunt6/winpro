@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
   title: {
     // Home title (absolute). Other pages fill the template, e.g. "About | WinPro Window Cleaning".
-    default: "WinPro Window Cleaning | St. George & Southern Utah",
+    default: "WinPro Window Cleaning | St. George, Cedar City & Southern Utah",
     template: "%s | WinPro Window Cleaning",
   },
   description:
-    "Streak-free window cleaning in St. George & Southern Utah — exterior, interior, screens, coatings, and Christmas lights. Get your free quote today.",
+    "Streak-free window cleaning in St. George, Cedar City & all of Southern Utah — exterior, interior, screens, coatings, and Christmas lights. Get your free quote today.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

@@ -4,7 +4,7 @@
 export const site = {
   name: "WinPro",
   legalName: "WinPro LLC",
-  tagline: "Window cleaning for St. George & Southern Utah",
+  tagline: "Window cleaning for St. George, Cedar City & all of Southern Utah",
   phone: "(435) 406-4455",
   phoneHref: "tel:+14354064455",
   // Owner inbox for quote requests — client-confirmed (§6, §12).
