@@ -18,7 +18,7 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* Brand + social */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <LogoIcon className="h-14 w-14" />
+            <LogoIcon className="h-20 w-20" />
             <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-white/60">
               {site.tagline}. Licensed and local.
             </p>
@@ -50,16 +50,14 @@ export function Footer() {
           </nav>
 
           {/* Areas served */}
-          <nav aria-label="Areas served">
+          <div aria-label="Areas served">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
               Areas served
             </h2>
-            <ul className="mt-3 space-y-2.5 text-[15px]">
-              {areasServed.map((city) => (
-                <li key={city}>{city}</li>
-              ))}
-            </ul>
-          </nav>
+            <p className="mt-3 text-[15px] leading-relaxed">
+              St. George, Cedar City, and all of Southern Utah
+            </p>
+          </div>
 
           {/* Company + contact */}
           <div>
