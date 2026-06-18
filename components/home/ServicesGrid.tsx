@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/data/services";
 
-/** Services grid (§5.1 #3): 5 photo cards, hover lift, each links to its page. */
+/** Services grid (§5.1 #3): 4 photo cards, hover lift, each links to its page. */
 export function ServicesGrid() {
   return (
     <section className="bg-cloud py-16 lg:py-24">
@@ -13,21 +13,14 @@ export function ServicesGrid() {
           align="center"
           eyebrow="What we do"
           title="Everything your glass needs, one local crew"
-          description="Five services, inside and out — pick what you need or bundle them on a plan."
+          description="Four services, inside and out — pick what you need or bundle them on a plan."
         />
 
-        {/* Bento grid: 2 large cards (50% each) on top, 3 smaller (33% each) below */}
-        <div className="mt-10 grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-6">
-          {/* First row: 2 large cards, each 50% (3 cols of 6) */}
-          {services.slice(0, 2).map((service, i) => (
-            <Reveal key={service.slug} delay={i * 60} className="sm:col-span-1 lg:col-span-3">
+        {/* 2x2 grid: all cards at 50% width */}
+        <div className="mt-10 grid grid-cols-1 justify-center gap-4 sm:grid-cols-2">
+          {services.map((service, i) => (
+            <Reveal key={service.slug} delay={i * 60}>
               <ServiceCard service={service} size="large" />
-            </Reveal>
-          ))}
-          {/* Second row: 3 smaller cards, each 33% (2 cols of 6) */}
-          {services.slice(2, 5).map((service, i) => (
-            <Reveal key={service.slug} delay={(i + 2) * 60} className="sm:col-span-1 lg:col-span-2">
-              <ServiceCard service={service} size="small" />
             </Reveal>
           ))}
         </div>

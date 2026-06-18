@@ -34,23 +34,16 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="What we do"
         title="Window cleaning services for St. George"
-        description="Five services, inside and out — pick what you need or bundle them on a maintenance plan."
+        description="Four services, inside and out — pick what you need or bundle them on a maintenance plan."
       />
       <section className="py-14 lg:py-20">
         <Container>
           <h2 className="sr-only">All services</h2>
-          {/* Bento grid: 2 large cards (50% each) on top, 3 smaller (33% each) below */}
-          <div className="grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-6">
-            {/* First row: 2 large cards, each 50% (3 cols of 6) */}
-            {services.slice(0, 2).map((service) => (
-              <div key={service.slug} className="sm:col-span-1 lg:col-span-3">
+          {/* 2x2 grid: all cards at 50% width */}
+          <div className="grid grid-cols-1 justify-center gap-4 sm:grid-cols-2">
+            {services.map((service) => (
+              <div key={service.slug}>
                 <ServiceCard service={service} size="large" />
-              </div>
-            ))}
-            {/* Second row: 3 smaller cards, each 33% (2 cols of 6) */}
-            {services.slice(2, 5).map((service) => (
-              <div key={service.slug} className="sm:col-span-1 lg:col-span-2">
-                <ServiceCard service={service} size="small" />
               </div>
             ))}
           </div>

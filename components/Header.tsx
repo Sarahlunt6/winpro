@@ -49,15 +49,30 @@ export function Header() {
     };
   }, [mobileOpen]);
 
-  // Use white text on homepage (over dark hero), dark text on other pages
+  // Track scroll position to switch header style after hero section
+  const [scrolled, setScrolled] = useState(false);
   const isHome = pathname === "/";
+
+  useEffect(() => {
+    if (!isHome) return;
+    const handleScroll = () => {
+      // Switch to dark mode after scrolling ~60% of viewport height
+      setScrolled(window.scrollY > window.innerHeight * 0.6);
+    };
+    handleScroll(); // Check initial position
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]);
+
+  // Use white text only in hero section of homepage, dark text everywhere else
+  const useLightText = isHome && !scrolled;
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 lg:px-6 lg:pt-5">
       <div
         className={cn(
-          "mx-auto max-w-7xl rounded-2xl border backdrop-blur-sm",
-          isHome
+          "mx-auto max-w-7xl rounded-2xl border backdrop-blur-sm transition-colors duration-300",
+          useLightText
             ? "border-ink bg-white/10"
             : "border-ink/20 bg-white/90"
         )}
@@ -85,7 +100,7 @@ export function Header() {
                       onClick={() => setServicesOpen((v) => !v)}
                       className={cn(
                         "flex min-h-[44px] items-center gap-1 rounded-full px-4 text-lg font-medium transition-colors",
-                        isHome
+                        useLightText
                           ? "text-white hover:bg-white/20"
                           : "text-ink/80 hover:bg-cloud hover:text-ink"
                       )}
@@ -130,7 +145,7 @@ export function Header() {
                       href={item.href}
                       className={cn(
                         "flex min-h-[44px] items-center rounded-full px-4 text-lg font-medium transition-colors",
-                        isHome
+                        useLightText
                           ? "text-white hover:bg-white/20"
                           : "text-ink/80 hover:bg-cloud hover:text-ink"
                       )}
@@ -148,7 +163,7 @@ export function Header() {
               href={site.phoneHref}
               className={cn(
                 "flex min-h-[44px] items-center text-base font-medium transition-colors",
-                isHome
+                useLightText
                   ? "text-white hover:text-white/80"
                   : "text-ink/80 hover:text-ink"
               )}
@@ -172,7 +187,7 @@ export function Header() {
               onClick={() => setMobileOpen((v) => !v)}
               className={cn(
                 "flex h-11 w-11 items-center justify-center rounded-full transition-colors",
-                isHome
+                useLightText
                   ? "text-white hover:bg-white/20"
                   : "text-ink hover:bg-cloud"
               )}
