@@ -34,7 +34,7 @@ export function Hero() {
             </Button>
             <a
               href={site.phoneHref}
-              className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-ink bg-white/10 px-5 text-base font-medium text-ink backdrop-blur-sm transition-colors hover:bg-white/20"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-full border-2 border-ink bg-white/10 px-5 text-base font-medium text-ink backdrop-blur-sm transition-colors hover:bg-white/20"
             >
               or call {site.phone}
             </a>
