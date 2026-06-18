@@ -49,10 +49,18 @@ export function Header() {
     };
   }, [mobileOpen]);
 
+  // Use white text on homepage (over dark hero), dark text on other pages
+  const isHome = pathname === "/";
+
   return (
     <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 lg:px-6 lg:pt-5">
       <div
-        className="mx-auto max-w-7xl rounded-2xl border border-ink bg-white/10 backdrop-blur-sm"
+        className={cn(
+          "mx-auto max-w-7xl rounded-2xl border backdrop-blur-sm",
+          isHome
+            ? "border-ink bg-white/10"
+            : "border-ink/20 bg-white/90"
+        )}
       >
         <div className="flex h-14 items-center justify-between gap-4 px-4 lg:h-16 lg:px-6">
           <Link
@@ -75,7 +83,12 @@ export function Header() {
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
                       onClick={() => setServicesOpen((v) => !v)}
-                      className="flex min-h-[44px] items-center gap-1 rounded-full px-4 text-lg font-medium text-white transition-colors hover:bg-white/20"
+                      className={cn(
+                        "flex min-h-[44px] items-center gap-1 rounded-full px-4 text-lg font-medium transition-colors",
+                        isHome
+                          ? "text-white hover:bg-white/20"
+                          : "text-ink/80 hover:bg-cloud hover:text-ink"
+                      )}
                     >
                       {item.label}
                       <ChevronDown
@@ -115,7 +128,12 @@ export function Header() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="flex min-h-[44px] items-center rounded-full px-4 text-lg font-medium text-white transition-colors hover:bg-white/20"
+                      className={cn(
+                        "flex min-h-[44px] items-center rounded-full px-4 text-lg font-medium transition-colors",
+                        isHome
+                          ? "text-white hover:bg-white/20"
+                          : "text-ink/80 hover:bg-cloud hover:text-ink"
+                      )}
                     >
                       {item.label}
                     </Link>
@@ -128,7 +146,12 @@ export function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href={site.phoneHref}
-              className="flex min-h-[44px] items-center text-base font-medium text-white transition-colors hover:text-white/80"
+              className={cn(
+                "flex min-h-[44px] items-center text-base font-medium transition-colors",
+                isHome
+                  ? "text-white hover:text-white/80"
+                  : "text-ink/80 hover:text-ink"
+              )}
             >
               {site.phone}
             </a>
@@ -147,7 +170,12 @@ export function Header() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
-              className="flex h-11 w-11 items-center justify-center rounded-full text-white transition-colors hover:bg-white/20"
+              className={cn(
+                "flex h-11 w-11 items-center justify-center rounded-full transition-colors",
+                isHome
+                  ? "text-white hover:bg-white/20"
+                  : "text-ink hover:bg-cloud"
+              )}
             >
               {mobileOpen ? <CloseIcon /> : <MenuIcon />}
             </button>

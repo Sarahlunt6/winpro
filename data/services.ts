@@ -187,45 +187,6 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "protective-coating",
-    name: "Protective glass coating",
-    navLabel: "Protective coating",
-    valueProp:
-      "A hydrophobic coating that helps glass shed water and resist hard-water spots longer.",
-    placeholderLabel: "Protective coating — photo TK",
-    image: "/photos/exterior-1.jpg",
-    sectionImage: "/photos/exterior-pool.jpg",
-    included: [
-      {
-        title: "Hard-water defense",
-        description:
-          "The coating makes it far harder for Southern Utah's mineral-heavy water to bond and spot the glass.",
-      },
-      {
-        title: "Water beads & runs off",
-        description:
-          "Rain and sprinkler overspray sheet off instead of drying into marks, so glass stays clearer between cleanings.",
-      },
-      {
-        title: "Easier upkeep",
-        description:
-          "Coated glass wipes down faster and holds its shine longer — great for shower doors and sun-facing windows.",
-      },
-    ],
-    faqs: [
-      {
-        question: "How long does the coating last?",
-        answer:
-          "Lifespan depends on sun exposure and water contact. We'll set the right re-application interval for your windows.",
-      },
-      {
-        question: "Can you coat shower glass?",
-        answer:
-          "Yes — shower doors are one of the best uses for it, since they take the worst of the hard water.",
-      },
-    ],
-  },
-  {
     slug: "christmas-lights",
     name: "Christmas light install",
     navLabel: "Christmas lights",
