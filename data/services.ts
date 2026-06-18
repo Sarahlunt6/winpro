@@ -61,9 +61,6 @@ export const services: Service[] = [
       "/photos/exterior-4.jpg",
       "/photos/exterior-pool.jpg",
       "/photos/exterior-water-pole.jpg",
-      "/photos/outdoor-hard-reach.jpg",
-      "/photos/action-water-pole.png",
-      "/photos/action-employees.jpg",
     ],
     included: [
       {
@@ -115,7 +112,14 @@ export const services: Service[] = [
     image: "/photos/indoor-2.jpg",
     sectionImage: "/photos/indoor-1.jpg",
     images: [
+      "/photos/indoor-1.jpg",
+      "/photos/indoor-2.jpg",
       "/photos/indoor-3.jpg",
+      "/photos/exterior-1.jpg",
+      "/photos/exterior-2.jpg",
+      "/photos/exterior-3.jpg",
+      "/photos/exterior-4.jpg",
+      "/photos/action-employees.jpg",
     ],
     included: [
       {
@@ -156,6 +160,16 @@ export const services: Service[] = [
     placeholderLabel: "Screen cleaning — photo TK",
     image: "/photos/outdoor-2.jpg",
     sectionImage: "/photos/action-employees.jpg",
+    images: [
+      "/photos/outdoor-1.jpg",
+      "/photos/outdoor-2.jpg",
+      "/photos/outdoor-3.jpg",
+      "/photos/exterior-pool.jpg",
+      "/photos/exterior-water-pole.jpg",
+      "/photos/outdoor-hard-reach.jpg",
+      "/photos/action-water-pole.png",
+      "/photos/action-employees.jpg",
+    ],
     included: [
       {
         title: "Removed & hand-cleaned",
@@ -195,6 +209,16 @@ export const services: Service[] = [
     placeholderLabel: "Christmas lights — photo TK",
     image: "/photos/christmas-lights.jpg",
     sectionImage: "/photos/christmas-lights-2.jpg",
+    images: [
+      "/photos/christmas-lights.jpg",
+      "/photos/christmas-lights-2.jpg",
+      "/photos/drone-home.jpg",
+      "/photos/drone-truck.jpg",
+      "/photos/drone-truck-2.jpg",
+      "/photos/truck-home.jpg",
+      "/photos/action-employees.jpg",
+      "/photos/exterior-pool.jpg",
+    ],
     seasonal: true,
     seasonalCallout: {
       title: "Install, maintenance, and takedown — all handled",
