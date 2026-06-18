@@ -13,9 +13,9 @@ export default function Home() {
       <Hero /> {/* 1 */}
       <ServicesGrid /> {/* 2 */}
       <PlansTeaser /> {/* 3 */}
-      <BeforeAfterSection /> {/* 4 — signature element */}
+      <InstagramFeed /> {/* 4 — Instagram posts */}
       <ReviewsCarousel /> {/* 5 — Google reviews */}
-      <InstagramFeed /> {/* 6 — stub (§7) */}
+      <BeforeAfterSection /> {/* 6 — signature element */}
       <FinalCtaBand /> {/* CTA with embedded quote form + trust strip */}
     </>
   );

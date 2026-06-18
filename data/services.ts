@@ -209,16 +209,6 @@ export const services: Service[] = [
     placeholderLabel: "Christmas lights — photo TK",
     image: "/photos/christmas-lights.jpg",
     sectionImage: "/photos/christmas-lights-2.jpg",
-    images: [
-      "/photos/christmas-lights.jpg",
-      "/photos/christmas-lights-2.jpg",
-      "/photos/drone-home.jpg",
-      "/photos/drone-truck.jpg",
-      "/photos/drone-truck-2.jpg",
-      "/photos/truck-home.jpg",
-      "/photos/action-employees.jpg",
-      "/photos/exterior-pool.jpg",
-    ],
     seasonal: true,
     seasonalCallout: {
       title: "Install, maintenance, and takedown — all handled",

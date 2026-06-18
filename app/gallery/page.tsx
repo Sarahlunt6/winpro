@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { GalleryGrid } from "@/components/gallery/GalleryGrid";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
+import { InstagramFeed } from "@/components/InstagramFeed";
 import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { imageGallerySchema, breadcrumbSchema } from "@/lib/schema";
@@ -34,6 +35,7 @@ export default function GalleryPage() {
           <GalleryGrid />
         </Container>
       </section>
+      <InstagramFeed />
       <FinalCtaBand />
     </>
   );

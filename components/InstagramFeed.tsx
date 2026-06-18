@@ -96,8 +96,13 @@ function PostCard({ post }: { post: BeholdPost }) {
       {/* Instagram-style header */}
       <div className="flex items-center gap-3 px-4 py-3">
         <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-[2px]">
-          <div className="flex h-full w-full items-center justify-center rounded-full bg-white text-xs font-bold text-ink">
-            W
+          <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-white">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt="WinPro"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
         <div className="min-w-0 flex-1">
