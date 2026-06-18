@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { LogoIcon } from "@/components/ui/Logo";
-import { areasServed, primaryNav, site } from "@/data/site";
+import { primaryNav, site } from "@/data/site";
 import { services } from "@/data/services";
 
 /** Long footer: brand + social, Services column, Areas Served column, phone (§3). */
