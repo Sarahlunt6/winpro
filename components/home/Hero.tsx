@@ -20,7 +20,7 @@ export function Hero() {
           <RatingPill />
 
           <h1 className="mt-6 text-balance font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-7xl lg:text-8xl">
-            Crystal clear windows. Every time.
+            Join the WinPro Club today.
           </h1>
 
           <p className="mt-6 max-w-xl text-xl text-white/85 sm:text-2xl lg:text-3xl">
