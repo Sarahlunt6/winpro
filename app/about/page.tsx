@@ -3,6 +3,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FinalCtaBand } from "@/components/home/FinalCtaBand";
+import { InstagramFeed } from "@/components/InstagramFeed";
 import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { webPageSchema, breadcrumbSchema } from "@/lib/schema";
@@ -142,6 +143,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <InstagramFeed />
       <FinalCtaBand />
     </>
   );

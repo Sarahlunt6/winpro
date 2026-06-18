@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { ReviewsPageCarousel } from "@/components/ReviewsPageCarousel";
 import { Button } from "@/components/ui/Button";
+import { InstagramFeed } from "@/components/InstagramFeed";
 import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { reviewsSchema, breadcrumbSchema } from "@/lib/schema";
@@ -61,6 +62,7 @@ export default function ReviewsPage() {
           </div>
         </Container>
       </section>
+      <InstagramFeed />
     </>
   );
 }
