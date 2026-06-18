@@ -111,7 +111,7 @@ export default function AboutPage() {
             <div>
               <SectionHeading
                 eyebrow="Where we work"
-                title="Proudly serving Southern Utah"
+                title="Proudly serving St. George, Cedar City, and all of Southern Utah"
                 description="If you're nearby and don't see your town, reach out — chances are we cover you."
               />
               <ul className="mt-8 flex flex-wrap gap-3">

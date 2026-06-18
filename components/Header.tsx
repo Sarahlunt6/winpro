@@ -75,7 +75,7 @@ export function Header() {
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
                       onClick={() => setServicesOpen((v) => !v)}
-                      className="flex min-h-[44px] items-center gap-1 rounded-full px-4 text-lg font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
+                      className="flex min-h-[44px] items-center gap-1 rounded-full px-4 text-lg font-medium text-white transition-colors hover:bg-white/20"
                     >
                       {item.label}
                       <ChevronDown
@@ -115,7 +115,7 @@ export function Header() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="flex min-h-[44px] items-center rounded-full px-4 text-lg font-medium text-ink/80 transition-colors hover:bg-cloud hover:text-ink"
+                      className="flex min-h-[44px] items-center rounded-full px-4 text-lg font-medium text-white transition-colors hover:bg-white/20"
                     >
                       {item.label}
                     </Link>
@@ -128,7 +128,7 @@ export function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href={site.phoneHref}
-              className="flex min-h-[44px] items-center text-base font-medium text-ink/80 transition-colors hover:text-ink"
+              className="flex min-h-[44px] items-center text-base font-medium text-white transition-colors hover:text-white/80"
             >
               {site.phone}
             </a>
@@ -147,7 +147,7 @@ export function Header() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
-              className="flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-cloud"
+              className="flex h-11 w-11 items-center justify-center rounded-full text-white transition-colors hover:bg-white/20"
             >
               {mobileOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
