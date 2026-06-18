@@ -99,9 +99,9 @@ function PostCard({ post }: { post: BeholdPost }) {
           <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-white">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.png"
+              src="/logo-icon.png"
               alt="WinPro"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
           </div>
         </div>
