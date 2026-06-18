@@ -54,9 +54,11 @@ export function Footer() {
             <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
               Areas served
             </h2>
-            <p className="mt-3 text-[15px] leading-relaxed">
-              St. George, Cedar City, and all of Southern Utah
-            </p>
+            <ul className="mt-3 space-y-2.5 text-[15px]">
+              <li>St. George</li>
+              <li>Cedar City</li>
+              <li>All of Southern Utah</li>
+            </ul>
           </div>
 
           {/* Company + contact */}
